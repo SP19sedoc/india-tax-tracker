@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Where Did My Income Tax Go? — India, FY2026-27</title>
+<title>Public Finance Playground</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&family=Fredoka:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -13,36 +13,30 @@
     --bg: #fff7e8; --card-bg: #ffffff; --text: #1f2430; --muted: #6a6455;
     --border: #1f2430; --border-w: 2.5px; --radius-card: 16px; --radius-pill: 999px;
     --accent: #e8402c; --accent-soft: #ffe3dc; --on-accent: #ffffff;
-    --grid: #f0e4cf;
+    --grid: #f0e4cf; --ok: #4caf6d; --ok-soft: #e3f5e9; --warn: #c98a1c; --warn-soft: #fbeecb;
     --font-display: 'Poppins', sans-serif; --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif; --font-mono: 'Inter', sans-serif;
     --shadow-card: 3px 3px 0 var(--border); --shadow-btn: 2px 2px 0 var(--border);
-    --s1: #e8402c; --s2: #2e9bf0; --s3: #ffc93c; --s4: #4caf6d;
-    --s5: #9b59d0; --s6: #ff8a3d; --s7: #2fc9c9; --s8: #ff5da2;
   }
   /* Theme 2: Playground — saturated coral/blue/mustard/green, Fredoka + Nunito Sans */
   [data-theme="playground"] {
     --bg: #eef8ff; --card-bg: #ffffff; --text: #22252b; --muted: #5a5c66;
     --border: #eaf2fb; --border-w: 1px; --radius-card: 20px; --radius-pill: 999px;
     --accent: #ff5d5d; --accent-soft: #ffe3e3; --on-accent: #ffffff;
-    --grid: #e3f0fb;
+    --grid: #e3f0fb; --ok: #3dbe7a; --ok-soft: #e3f8ec; --warn: #d68a1f; --warn-soft: #fdf0d9;
     --font-display: 'Fredoka', sans-serif; --font-heading: 'Fredoka', sans-serif;
     --font-body: 'Nunito Sans', sans-serif; --font-mono: 'Nunito Sans', sans-serif;
     --shadow-card: 0 6px 0 rgba(20,30,60,.06); --shadow-btn: 0 4px 0 #d63f3f;
-    --s1: #ff5d5d; --s2: #2ea6ff; --s3: #ffb238; --s4: #3dbe7a;
-    --s5: #9b6bff; --s6: #ff8a3d; --s7: #29c7b3; --s8: #ff6fa5;
   }
   /* Theme 3: Arcade Cabinet — neon glow on near-black, Press Start 2P + VT323 + Inter */
   [data-theme="arcade"] {
     --bg: #0d0221; --card-bg: #160a30; --text: #f0eaff; --muted: #9d8bc9;
     --border: #3d2a66; --border-w: 2px; --radius-card: 6px; --radius-pill: 3px;
     --accent: #ff2bd6; --accent-soft: rgba(255,43,214,.14); --on-accent: #0d0221;
-    --grid: #2a1a4a;
+    --grid: #2a1a4a; --ok: #39ff14; --ok-soft: rgba(57,255,20,.12); --warn: #ffeb3b; --warn-soft: rgba(255,235,59,.12);
     --font-display: 'Press Start 2P', monospace; --font-heading: 'VT323', monospace;
     --font-body: 'Inter', sans-serif; --font-mono: 'VT323', monospace;
     --shadow-card: 0 0 0 1px var(--border), 0 0 16px rgba(255,43,214,.25); --shadow-btn: 0 0 10px rgba(255,43,214,.5);
-    --s1: #ff2bd6; --s2: #00f0ff; --s3: #ffeb3b; --s4: #39ff14;
-    --s5: #ff9e2c; --s6: #7a5cff; --s7: #ff5c8a; --s8: #5ce1ff;
   }
   * { box-sizing: border-box; }
   body {
@@ -56,11 +50,11 @@
     content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
     background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 3px);
   }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px 80px; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 48px 20px 80px; }
   header { text-align: center; margin-bottom: 24px; }
   .theme-toggle {
     display: inline-flex; gap: 4px; background: var(--card-bg); border: var(--border-w) solid var(--border);
-    border-radius: 8px; padding: 3px; margin-bottom: 28px; box-shadow: var(--shadow-card);
+    border-radius: 8px; padding: 3px; margin-bottom: 14px; box-shadow: var(--shadow-card);
   }
   .theme-btn {
     font-family: var(--font-body); font-size: 12px; font-weight: 600;
@@ -72,404 +66,104 @@
   .theme-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   h1 {
     font-family: var(--font-display);
-    font-size: clamp(26px, 5vw, 40px);
+    font-size: clamp(28px, 5vw, 44px);
     font-weight: 700;
     margin: 0 0 14px;
     line-height: 1.25;
   }
-  [data-theme="arcade"] h1 { font-size: clamp(16px, 3.2vw, 24px); line-height: 1.7; }
+  [data-theme="arcade"] h1 { font-size: clamp(17px, 3.4vw, 26px); line-height: 1.7; }
   header p.sub {
     color: var(--muted);
     font-size: 16px;
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto 8px;
   }
-  header p.meta {
-    color: var(--muted);
-    font-size: 13px;
-  }
-  .card {
-    background: var(--card-bg);
-    border: var(--border-w) solid var(--border);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-    padding: 28px;
-    margin-bottom: 24px;
-  }
-  .input-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    margin: 8px 0 14px;
-  }
-  .input-row .rupee { font-size: 32px; color: var(--muted); font-family: var(--font-display); }
-  .input-row input {
-    font-family: var(--font-display);
-    font-size: 32px;
-    text-align: center;
-    border: none;
-    border-bottom: var(--border-w) solid var(--text);
-    background: transparent;
-    color: var(--text);
-    width: 240px;
-    max-width: 100%;
-    padding: 4px 0;
-  }
-  .input-row input:focus { outline: none; border-bottom-color: var(--accent); }
-  [data-theme="arcade"] .input-row .rupee,
-  [data-theme="arcade"] .input-row input { font-family: var(--font-mono); font-size: 40px; width: 220px; }
-  .input-help {
-    text-align: center;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .input-help button {
-    background: none; border: none; padding: 0;
-    color: var(--accent); text-decoration: underline;
-    font-size: 13px; cursor: pointer; font-family: inherit;
-  }
-  .share-panel {
-    text-align: center;
-    background: var(--accent-soft);
-    border: var(--border-w) solid var(--accent);
-    border-radius: var(--radius-card);
-    padding: 22px;
-    margin-top: 22px;
-  }
-  .share-panel .label {
-    font-family: var(--font-heading);
-    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted);
-  }
-  .share-panel .value {
-    font-family: var(--font-display);
-    font-size: 40px;
-    margin: 6px 0;
-    color: var(--text);
-  }
-  [data-theme="arcade"] .share-panel .value { font-family: var(--font-mono); font-size: 44px; }
-  .share-panel .note { font-size: 13px; color: var(--muted); max-width: 520px; margin: 6px auto 0; }
-
-  .tabs { display: flex; gap: 4px; border-bottom: var(--border-w) solid var(--grid); margin-bottom: 18px; flex-wrap: wrap; }
-  .tabs button {
-    background: none; border: none; padding: 10px 4px; margin-right: 20px;
-    font-size: 15px; font-family: var(--font-heading); font-weight: 600; color: var(--muted);
-    cursor: pointer; border-bottom: 2px solid transparent;
-  }
-  [data-theme="arcade"] .tabs button { font-size: 18px; }
-  .tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
-  .panel { display: none; }
-  .panel.active { display: block; }
-
-  .func-list { width: 100%; }
-  .func-row {
-    padding: 11px 0; border-bottom: 1px solid var(--grid);
-    font-size: 14px;
-  }
-  .func-row .top-line { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-  .swatch { width: 11px; height: 11px; border-radius: 3px; flex: none; }
-  [data-theme="arcade"] .swatch { border-radius: 1px; box-shadow: 0 0 6px currentColor; }
-  .func-row .name { flex: 1; color: var(--text); }
-  .func-row .name small { display:block; color: var(--muted); font-size: 11px; font-weight: 400; }
-  .func-row .amt { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
-  .func-row .pct { width: 44px; text-align: right; color: var(--muted); font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-  .func-bar-track { background: var(--grid); border-radius: 4px; height: 10px; overflow: hidden; margin-left: 21px; }
-  .func-bar-fill { height: 100%; border-radius: 4px; }
-  [data-theme="arcade"] .func-bar-fill { box-shadow: 0 0 8px currentColor; }
-
-  .min-row { margin-bottom: 12px; }
-  .min-row .top { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px; }
-  .min-row .top .amt { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--muted); }
-  .min-bar-track { background: var(--grid); border-radius: 4px; height: 10px; overflow: hidden; }
-  .min-bar-fill { background: var(--accent); height: 100%; border-radius: 4px; }
+  [data-theme="arcade"] header p.sub { font-size: 15px; }
 
   .cards-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+    gap: 20px; margin-top: 36px;
   }
-  .fact-card {
+  .tool-card {
     background: var(--card-bg); border: var(--border-w) solid var(--border); border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
-    padding: 18px;
+    padding: 26px; text-align: left;
+    display: flex; flex-direction: column;
   }
-  .fact-card .tag {
+  .tool-card .tag-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .tool-card .tag {
     font-family: var(--font-heading); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--accent); font-weight: 700; margin-bottom: 6px;
+    color: var(--accent); font-weight: 700;
   }
-  .fact-card .headline {
-    font-family: var(--font-heading); font-weight: 700; font-size: 17px; margin: 0 0 8px; line-height: 1.35;
+  .status-pill {
+    font-family: var(--font-body); font-size: 11px; font-weight: 600;
+    padding: 3px 9px; border-radius: var(--radius-pill);
+    display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
   }
-  [data-theme="arcade"] .fact-card .headline { font-size: 20px; }
-  .fact-card .headline b { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-  .fact-card p { font-size: 13.5px; color: var(--muted); margin: 0 0 8px; }
-  .fact-card .src { font-size: 11px; color: var(--muted); opacity: .8; }
-  .fact-card .src a { color: var(--muted); }
-
-  .context-card { margin-bottom: 14px; background: var(--card-bg); border: var(--border-w) solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 18px 20px; }
-  .context-card h3 { font-family: var(--font-heading); font-weight: 700; font-size: 17px; margin: 0 0 8px; }
-  [data-theme="arcade"] .context-card h3 { font-size: 20px; }
-  .context-card p { font-size: 14px; color: var(--muted); margin: 0 0 6px; }
-  .context-card .src { font-size: 11.5px; color: var(--muted); opacity: .8; }
-  .context-card .src a { color: var(--muted); }
-
-  h2.section-title { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin: 44px 0 16px; color: var(--text); }
-  [data-theme="arcade"] h2.section-title { font-size: 16px; }
-
-  .flow-intro { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
-  .flow-block { margin-bottom: 18px; }
-  .flow-block .flow-title { font-family: var(--font-heading); font-size: 13px; font-weight: 700; margin-bottom: 6px; display: flex; justify-content: space-between; }
-  .flow-bar { display: flex; height: 22px; border-radius: 5px; overflow: hidden; background: var(--grid); border: var(--border-w) solid var(--border); }
-  .flow-seg { display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10.5px; color: #fff; white-space: nowrap; overflow: hidden; }
-  .flow-legend { display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 11.5px; color: var(--muted); margin-top: 6px; }
-  .flow-legend span.dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; }
-
-  .subsection-title { font-family: var(--font-heading); font-weight: 700; font-size: 17px; margin: 30px 0 4px; }
-  [data-theme="arcade"] .subsection-title { font-size: 20px; }
-  .subsection-sub { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
-
-  .scheme-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  .scheme-table th { text-align: left; font-family: var(--font-heading); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 700; padding: 0 8px 6px; border-bottom: var(--border-w) solid var(--grid); }
-  .scheme-table td { padding: 9px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
-  .scheme-table td.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .scheme-table .scheme-name { font-weight: 600; }
-  .scheme-table .scheme-benef { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
-  .scheme-table-wrap { overflow-x: auto; }
-
-  .states-note { background: var(--card-bg); border: var(--border-w) dashed var(--border); border-radius: var(--radius-card); padding: 14px 16px; font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
-
-  .sources ul { columns: 2; font-size: 13px; color: var(--muted); padding-left: 18px; }
-  .sources a { color: var(--accent); }
-  .sources li { break-inside: avoid; margin-bottom: 6px; }
-
-  footer { margin-top: 48px; font-size: 12px; color: var(--muted); text-align: center; line-height: 1.7; }
-  footer a { color: var(--muted); }
-  a { color: var(--accent); }
-
-  .method-link {
-    display: inline-block; margin-top: 10px; font-size: 12.5px; color: var(--muted);
-    text-decoration: underline;
+  .status-pill .dot { width: 6px; height: 6px; border-radius: 50%; flex: none; }
+  .status-pill.is-checking { background: var(--grid); color: var(--muted); }
+  .status-pill.is-checking .dot { background: var(--muted); }
+  .status-pill.is-online { background: var(--ok-soft); color: var(--ok); }
+  .status-pill.is-online .dot { background: var(--ok); }
+  .status-pill.is-offline { background: var(--warn-soft); color: var(--warn); }
+  .status-pill.is-offline .dot { background: var(--warn); }
+  .tool-card h2 {
+    font-family: var(--font-heading); font-weight: 700; font-size: 20px; margin: 0 0 10px; line-height: 1.35;
   }
-  .method-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-  .method-group h4 {
-    font-family: var(--font-heading); font-weight: 700; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent);
-    margin: 0 0 8px;
+  [data-theme="arcade"] .tool-card h2 { font-size: 23px; }
+  .tool-card p {
+    font-size: 14px; color: var(--muted); margin: 0 0 16px; flex-grow: 1;
   }
-  .method-group ul { margin: 0; padding-left: 18px; }
-  .method-group li { font-size: 13px; color: var(--muted); margin-bottom: 6px; line-height: 1.45; }
+  [data-theme="arcade"] .tool-card p { font-size: 15px; }
+  .tool-card .offline-help {
+    font-size: 12.5px; color: var(--warn); background: var(--warn-soft); border-radius: 10px;
+    padding: 10px 12px; margin: 0 0 16px; display: none;
+  }
+  [data-theme="arcade"] .tool-card .offline-help { font-size: 14px; }
+  .tool-card .offline-help.show { display: block; }
+  .tool-card .offline-help code {
+    font-family: var(--font-mono); background: rgba(0,0,0,.08); padding: 1px 5px; border-radius: 4px;
+  }
+  .tool-actions { display: flex; gap: 8px; align-items: center; }
+  .tool-btn {
+    display: inline-block; text-decoration: none;
+    font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+    background: var(--accent); color: var(--on-accent); border: none;
+    border-radius: var(--radius-pill); padding: 12px 18px; cursor: pointer;
+    box-shadow: var(--shadow-btn);
+  }
+  [data-theme="arcade"] .tool-btn { font-size: 15px; }
+  .tool-btn:hover { filter: brightness(1.06); }
+  .tool-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .recheck-btn {
+    font-family: var(--font-body); font-weight: 600; font-size: 12.5px;
+    background: none; color: var(--muted); border: var(--border-w) solid var(--grid);
+    border-radius: var(--radius-pill); padding: 10px 14px; cursor: pointer;
+  }
+  .recheck-btn:hover { color: var(--text); border-color: var(--muted); }
+  .recheck-btn:disabled { opacity: .5; cursor: default; }
 
-  /* Arcade: VT323/Press Start 2P read smaller than sans at the same px size — bump the small text up */
-  [data-theme="arcade"] .input-help,
-  [data-theme="arcade"] .share-panel .note,
-  [data-theme="arcade"] .flow-intro,
-  [data-theme="arcade"] .subsection-sub,
-  [data-theme="arcade"] .states-note,
-  [data-theme="arcade"] .fact-card p,
-  [data-theme="arcade"] .context-card p,
-  [data-theme="arcade"] .scheme-table,
-  [data-theme="arcade"] .sources ul,
-  [data-theme="arcade"] .method-group li { font-size: 15px; }
-  [data-theme="arcade"] .share-panel .label,
-  [data-theme="arcade"] .flow-block .flow-title,
-  [data-theme="arcade"] .flow-legend,
-  [data-theme="arcade"] .scheme-table .scheme-benef,
-  [data-theme="arcade"] .func-row .name small,
-  [data-theme="arcade"] .min-row .top,
-  [data-theme="arcade"] .method-link,
+  footer { margin-top: 56px; font-size: 12px; color: var(--muted); text-align: center; line-height: 1.7; }
   [data-theme="arcade"] footer { font-size: 14px; }
-  [data-theme="arcade"] .func-row .pct,
-  [data-theme="arcade"] .func-row .amt,
-  [data-theme="arcade"] .min-row .top .amt,
-  [data-theme="arcade"] .scheme-table td.num,
-  [data-theme="arcade"] .flow-seg { font-size: 16px; }
-  [data-theme="arcade"] .scheme-table th { font-size: 13px; }
-  [data-theme="arcade"] .fact-card .src,
-  [data-theme="arcade"] .context-card .src { font-size: 13px; }
-  [data-theme="arcade"] .fact-card .tag { font-size: 13px; }
-  [data-theme="arcade"] .method-group h4 { font-size: 15px; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
+  <h1>Public Finance Playground</h1>
+  <p class="sub">A home base for public-finance tools — pick one below to open it in a new tab.</p>
+</header>
+
+<div class="cards-grid" id="cardsGrid"></div>
+
+<footer>
   <div class="theme-toggle" id="themeToggle">
     <button class="theme-btn" data-theme-choice="storybook">Storybook</button>
     <button class="theme-btn" data-theme-choice="playground">Playground</button>
     <button class="theme-btn" data-theme-choice="arcade">Arcade</button>
   </div>
-  <h1>Where did my income tax go?</h1>
-  <p class="sub">Enter what you paid in personal income tax and see how the Union government allocates your share of spending — based on the Union Budget 2026-27.</p>
-  <p class="meta">Budget Estimates (BE) 2026-27, presented 1 February 2026 · Figures from the Ministry of Finance's Budget at a Glance</p>
-</header>
-
-<div class="card">
-  <div class="input-row">
-    <span class="rupee">₹</span>
-    <input type="text" inputmode="numeric" id="taxInput" aria-label="Income tax paid">
-  </div>
-  <div class="input-help">
-    What you paid in personal income tax (see Form 26AS or your ITR acknowledgment)
-  </div>
-
-  <div class="share-panel">
-    <div class="label">Your share of Union government spending</div>
-    <div class="value" id="shareValue">₹0</div>
-    <div class="note" id="shareNote"></div>
-    <a class="method-link" href="#methodology">See methodology &amp; assumptions ↓</a>
-  </div>
-</div>
-
-<div class="tabs">
-  <button class="tab-btn active" data-tab="func">By Function</button>
-  <button class="tab-btn" data-tab="min">By Ministry</button>
-  <button class="tab-btn" data-tab="scheme">Scheme &amp; Transfer Details</button>
-</div>
-
-<div class="card">
-  <div class="panel active" id="panel-func">
-    <div class="func-list" id="funcList"></div>
-  </div>
-
-  <div class="panel" id="panel-min">
-    <div id="minList"></div>
-  </div>
-
-  <div class="panel" id="panel-scheme">
-    <p class="flow-intro">The ₹53.47 lakh crore budget splits three ways: <b>Scheme Expenditure</b> (₹23.21 lakh crore — money tied to a specific programme), <b>Transfers, Establishment &amp; Other Expenditure</b> (₹30.26 lakh crore — interest, pensions, salaries, transfers to states) and, within transfers, the unconditional <b>states' share of taxes</b>. Here's what's inside each, using the Ministry of Finance's own "Budget Profile" breakdown.</p>
-
-    <div class="flow-block">
-      <div class="flow-title"><span>Central Sector Schemes</span><span>₹17.72 lakh crore</span></div>
-      <div class="flow-bar" id="flowCSS"></div>
-      <div class="flow-legend" id="flowCSSLegend"></div>
-    </div>
-    <div class="flow-block">
-      <div class="flow-title"><span>— of which, Subsidy</span><span>₹4.55 lakh crore</span></div>
-      <div class="flow-bar" id="flowSubsidy"></div>
-      <div class="flow-legend" id="flowSubsidyLegend"></div>
-    </div>
-    <div class="flow-block">
-      <div class="flow-title"><span>Transfers, Establishment &amp; Other Expenditure</span><span>₹30.26 lakh crore</span></div>
-      <div class="flow-bar" id="flowTransfers"></div>
-      <div class="flow-legend" id="flowTransfersLegend"></div>
-    </div>
-    <p class="subsection-sub" style="margin-top:-4px;">Source: Budget at a Glance, "Budget Profile," BE 2026-27. Note: "Central Sector Schemes" here (₹17.72 lakh crore, includes defence procurement &amp; subsidies) is a different, broader definition than the "Central Sector Schemes" slice in the By Function tab (11%/17% figures there exclude defence capital and major subsidies) — the two budget documents categorise the same spending differently.</p>
-
-    <h3 class="subsection-title">Where the states' share actually goes</h3>
-    <div class="states-note">This ₹<span id="statesShareLakhCr"></span> lakh crore is <b>unconditional</b> — once devolved, it becomes part of each state's own budget, spent entirely at that state's discretion (salaries, pensions, roads, welfare schemes, anything). The Union government doesn't track how it's spent. What <em>is</em> tracked is which states get how much, set by the 16th Finance Commission's formula (income distance 42.5%, population 17.5%, demographic performance 10%, area 10%, forest 10%, GDP contribution 10%).</div>
-    <div class="scheme-table-wrap">
-      <table class="scheme-table">
-        <thead><tr><th>State</th><th class="num">Formula share</th><th class="num">Your contribution</th></tr></thead>
-        <tbody id="statesTable"></tbody>
-      </table>
-    </div>
-
-    <h3 class="subsection-title">Top Centrally Sponsored Schemes</h3>
-    <p class="subsection-sub">Co-funded with states — the Union sets the programme, states help run it. Ranked by BE 2026-27 allocation.</p>
-    <div class="scheme-table-wrap">
-      <table class="scheme-table">
-        <thead><tr><th>Scheme</th><th class="num">BE 2026-27</th><th class="num">Your share</th></tr></thead>
-        <tbody id="cssTable"></tbody>
-      </table>
-    </div>
-
-    <h3 class="subsection-title">Top Central Sector Schemes</h3>
-    <p class="subsection-sub">Fully Union-funded, run directly by central ministries. Ranked by BE 2026-27 allocation among schemes with an identifiable public purpose (generic procurement/accounting heads excluded).</p>
-    <div class="scheme-table-wrap">
-      <table class="scheme-table">
-        <thead><tr><th>Scheme</th><th class="num">BE 2026-27</th><th class="num">Your share</th></tr></thead>
-        <tbody id="csTable"></tbody>
-      </table>
-    </div>
-    <p class="subsection-sub">Source: Budget at a Glance, Statement 7 — "Outlay on Major Schemes" (schemes with BE 2026-27 allocation over ₹1,000 crore), Ministry of Finance.</p>
-  </div>
-</div>
-
-<h2 class="section-title">Did you know?</h2>
-<div class="cards-grid" id="factsGrid"></div>
-
-<h2 class="section-title">Policy in context</h2>
-<div class="context-card">
-  <h3>MGNREGA has been repealed</h3>
-  <p id="mgnregaText"></p>
-  <p class="src">Source: <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207187&reg=3&lang=1" target="_blank" rel="noopener">PIB — President's assent to the VB-G RAM G Bill, 2025</a>, <a href="https://prsindia.org/billtrack/the-viksit-bharat-%E2%80%93-guarantee-for-rozgar-and-ajeevika-mission-gramin-vb-%E2%80%93-g-ram-g-bill-2025" target="_blank" rel="noopener">PRS Legislative Research bill track</a>; Budget at a Glance, Statement 7</p>
-</div>
-<div class="context-card">
-  <h3>The 22% "states' share" isn't the same as the Finance Commission's 41%</h3>
-  <p>The 16th Finance Commission (2026-31 award period, chaired by Arvind Panagariya) retained the states' vertical devolution share at <b>41% of the divisible pool</b> — unchanged from the 15th Finance Commission — a recommendation the Union government has accepted. The 22% figure in the chart above is a different number: it's states' tax devolution as a share of <em>total Union government spending</em>, which is a smaller base than the divisible pool (the divisible pool excludes cesses, surcharges and the cost of collection, which have grown as a share of gross tax revenue over the past decade — one reason states have long argued the effective devolution is lower than the headline 41%).</p>
-  <p class="src">Source: 16th Finance Commission report, tabled in Parliament 1 February 2026 — summarised by <a href="https://prsindia.org/policy/report-summaries/report-of-the-16th-finance-commission-for-2026-31" target="_blank" rel="noopener">PRS Legislative Research</a> and <a href="https://www.business-standard.com/budget/news/16th-finance-commission-retains-41-percent-devolution-gdp-criterion-126020101042_1.html" target="_blank" rel="noopener">Business Standard</a></p>
-</div>
-
-<h2 class="section-title" id="methodology">Methodology &amp; assumptions</h2>
-<div class="card">
-  <div class="method-groups">
-    <div class="method-group">
-      <h4>Data</h4>
-      <ul>
-        <li>Figures are Budget Estimates (BE) 2026-27 — the plan as of 1 Feb 2026, not final actuals.</li>
-      </ul>
-    </div>
-    <div class="method-group">
-      <h4>"Your share" calculation</h4>
-      <ul>
-        <li>Covers income tax only — not GST, customs, or excise you also pay.</li>
-        <li>The 1.4644× multiplier assumes tax money is pooled, not earmarked: it reflects the deficit split proportionally across all revenue sources, not something specific to income tax.</li>
-      </ul>
-    </div>
-    <div class="method-group">
-      <h4>By Function tab</h4>
-      <ul>
-        <li>Defence % here excludes capital acquisitions &amp; pensions — see By Ministry for the full figure.</li>
-      </ul>
-    </div>
-    <div class="method-group">
-      <h4>By Ministry tab</h4>
-      <ul>
-        <li>Only the top 12 ministries are shown individually; the rest are bucketed as "All other."</li>
-        <li>The Finance line bundles interest, pensions, and state transfers into one number.</li>
-      </ul>
-    </div>
-    <div class="method-group">
-      <h4>Scheme &amp; Transfer Details tab</h4>
-      <ul>
-        <li>Scheme lists cover only schemes over ₹1,000 crore (Statement 7) — smaller schemes aren't shown.</li>
-        <li>The Central Sector Schemes list excludes generic procurement/accounting line items by editorial choice.</li>
-        <li>"Central Sector Schemes" has two different official definitions across budget documents — the % in By Function excludes defence capital &amp; subsidies; the ₹17.72L cr figure here includes them.</li>
-        <li>"Other subsidy" (₹0.44L cr) is a balancing figure, not an officially labeled government category.</li>
-        <li>The states' table covers tax devolution only — Centrally Sponsored Schemes and Finance Commission grants to states follow separate, non-formula allocations.</li>
-        <li>Only the top 8 states are shown individually; the rest are "All other states &amp; UTs."</li>
-      </ul>
-    </div>
-    <div class="method-group">
-      <h4>"Did You Know" cards</h4>
-      <ul>
-        <li>Jet cost is from one December 2025 order — actual per-unit cost varies by deal.</li>
-        <li>"Taxpayers needed to fund X" assumes everyone pays exactly your amount.</li>
-        <li>Per-second figures assume spending is spread evenly across the year — real government spending is uneven.</li>
-        <li>PM POSHAN cost shown is the primary-school rate; upper-primary is higher.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<h2 class="section-title">Sources</h2>
-<div class="card sources">
-  <ul>
-    <li><a href="https://www.indiabudget.gov.in/doc/Budget_at_Glance/bag1.pdf" target="_blank" rel="noopener">Budget at a Glance — headline figures, Rupee Comes From / Goes To</a></li>
-    <li><a href="https://www.indiabudget.gov.in/doc/Budget_at_Glance/bag5.pdf" target="_blank" rel="noopener">Budget at a Glance — Receipts (Statement 6)</a></li>
-    <li><a href="https://www.indiabudget.gov.in/doc/Budget_at_Glance/bag7.pdf" target="_blank" rel="noopener">Budget at a Glance — scheme allocations (Statement 7)</a></li>
-    <li><a href="https://www.indiabudget.gov.in/doc/eb/sumsbe.pdf" target="_blank" rel="noopener">Notes on Demands for Grants 2026-27 — ministry-wise summary</a></li>
-    <li><a href="https://www.indiabudget.gov.in/" target="_blank" rel="noopener">indiabudget.gov.in — full Union Budget 2026-27 documents</a></li>
-    <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207187&reg=3&lang=1" target="_blank" rel="noopener">PIB — VB-G RAM G Act, 2025 (MGNREGA repeal)</a></li>
-    <li><a href="https://prsindia.org/policy/report-summaries/report-of-the-16th-finance-commission-for-2026-31" target="_blank" rel="noopener">16th Finance Commission report summary — PRS Legislative Research</a></li>
-    <li><a href="https://www.business-standard.com/budget/news/16th-finance-commission-retains-41-percent-devolution-gdp-criterion-126020101042_1.html" target="_blank" rel="noopener">16th Finance Commission devolution — Business Standard</a></li>
-  </ul>
-</div>
-
-<footer>
-  This is an independent, unofficial tool for informational purposes only. All figures are Budget Estimates for FY2026-27 as presented by the Ministry of Finance, Government of India, unless marked otherwise. "Your share" allocates your income tax payment across spending categories using official budget shares, scaled by the ratio of total expenditure to total receipts (excluding borrowings) — it is an illustrative allocation, not an official tax receipt. Not affiliated with any government agency.
-  <br>Built for personal/editorial reference use.
+  <p>Public Finance Playground</p>
 </footer>
 
 </div>
@@ -478,14 +172,14 @@
 // ---------- Theme (Storybook / Playground / Arcade) ----------
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('itt-theme', theme); } catch (e) {}
+  try { localStorage.setItem('pfp-theme', theme); } catch (e) {}
   document.querySelectorAll('.theme-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.themeChoice === theme);
   });
 }
 (function initTheme() {
-  let saved = 'storybook';
-  try { saved = localStorage.getItem('itt-theme') || 'storybook'; } catch (e) {}
+  let saved = 'arcade';
+  try { saved = localStorage.getItem('pfp-theme') || 'arcade'; } catch (e) {}
   document.documentElement.dataset.theme = saved;
   document.querySelectorAll('.theme-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.themeChoice === saved);
@@ -493,372 +187,85 @@ function applyTheme(theme) {
   });
 })();
 
-const CR = 1e7; // 1 crore = 1e7 rupees
-function crToRupees(cr) { return cr * CR; }
-function fmtRupees(n, decimals) {
-  decimals = decimals === undefined ? 0 : decimals;
-  return '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-}
-function fmtCr(cr) { return '₹' + Math.round(cr).toLocaleString('en-IN') + ' crore'; }
-function fmtLakhCr(cr) { return '₹' + (cr / 100000).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' lakh crore'; }
-
-// ---------- Verified data, Union Budget 2026-27 (BE), all crore figures ----------
-const FISCAL = {
-  totalExpenditure: 5347315,
-  revenueReceipts: 3533150,
-  nonDebtCapitalReceipts: 118397,
-  fiscalDeficit: 1695768,
-  fiscalDeficitPctGDP: 4.3,
-  gdp: 39300393,
-  personalIncomeTaxGross: 1466000 // "Taxes on Income", incl. STT
-};
-FISCAL.totalReceiptsExclBorrowing = FISCAL.revenueReceipts + FISCAL.nonDebtCapitalReceipts;
-FISCAL.multiplier = FISCAL.totalExpenditure / FISCAL.totalReceiptsExclBorrowing;
-FISCAL.statesShareOfTaxes = 1526255; // ₹ crore, BE 2026-27 — Budget at a Glance, Statement 6
-
-// Official "Rupee Goes To" percentages, Budget at a Glance p.5 (Civil Pension folded into Other Expenditure)
-const RUPEE_GOES_TO = [
-  { name: "States' Share of Taxes & Duties", pct: 22, slot: 's1', note: "Automatic devolution to states under the Finance Commission formula" },
-  { name: "Interest Payments", pct: 20, slot: 's2', note: "Interest on past government borrowing" },
-  { name: "Central Sector Schemes", pct: 17, slot: 's3', note: "Fully central-funded schemes; excludes defence capital & major subsidies" },
-  { name: "Defence", pct: 11, slot: 's4', note: "Revenue defence spend — see By Ministry for full Defence outlay" },
-  { name: "Other Expenditure & Civil Pensions", pct: 9, slot: 's5', note: "7% other expenditure + 2% civil pensions" },
-  { name: "Centrally Sponsored Schemes", pct: 8, slot: 's6', note: "Schemes co-funded with states" },
-  { name: "Finance Commission & Other Transfers", pct: 7, slot: 's7', note: "FC grants and other transfers to states" },
-  { name: "Major Subsidies", pct: 6, slot: 's8', note: "Food, fertiliser and petroleum subsidies" }
+// ---------- Tools ----------
+// Add a new tool here to give it a card on the landing page — nothing else
+// needs to change. Static tools (plain HTML files) just need `url`.
+// Tools backed by a local server also need `checkUrl` (usually the same as
+// `url`) so the card can show a live "starting… / ready / offline" status —
+// and a matching start-server step should be added to
+// "Open Public Finance Playground.command".
+const TOOLS = [
+  {
+    title: "State Budget Analyser",
+    tag: "Fiscal Report",
+    desc: "Upload a state budget, CAG report, or fiscal document and get a structured analysis across different dimensions of public finance.",
+    url: "https://sp19sedoc.github.io/state-fiscal-analyser/",
+  },
+  {
+    title: "State Fiscal Indicators",
+    tag: "Explorer",
+    desc: "Fiscal indicators for every Indian state, computed from GSDP and state finance data.",
+    url: "https://sp19sedoc.github.io/state-fiscal-indicators/state_fiscal_indicators_v0.7.html",
+  },
+  {
+    title: "Where Did My Income Tax Go?",
+    tag: "Spending Breakdown",
+    desc: "Enter what you paid in income tax and see how the Union government spends your share.",
+    url: "https://sp19sedoc.github.io/india-tax-tracker/",
+  },
 ];
 
-// Ministry-wise, BE 2026-27, ₹ crore — Notes on Demands for Grants (sumsbe.pdf)
-const MINISTRIES_RAW = [
-  { name: "Defence", cr: 784678.28 },
-  { name: "Road Transport & Highways", cr: 309875.30 },
-  { name: "Railways", cr: 281377.32 },
-  { name: "Home Affairs", cr: 255233.53 },
-  { name: "Consumer Affairs, Food & Public Distribution", cr: 239521.37 },
-  { name: "Rural Development", cr: 197023.14 },
-  { name: "Chemicals & Fertilisers", cr: 177061.47 },
-  { name: "Agriculture & Farmers Welfare", cr: 140528.78 },
-  { name: "Education", cr: 139289.48 },
-  { name: "Health & Family Welfare", cr: 106530.42 },
-  { name: "Communications", cr: 102267.02 },
-  { name: "Jal Shakti", cr: 94807.84 },
-  { name: "Finance — interest, pensions, state transfers & tax admin", cr: 1972509.48 }
-];
-const ministrySum = MINISTRIES_RAW.reduce((a, m) => a + m.cr, 0);
-const MINISTRIES = MINISTRIES_RAW.concat([
-  { name: "All other ministries & departments", cr: FISCAL.totalExpenditure - ministrySum }
-]).sort((a, b) => b.cr - a.cr);
-
-const SCHEMES = {
-  vbGramG: 95692,          // replaces MGNREGA, effective 1 July 2026
-  pmKisan: 63500,
-  pmKisanPerFamily: 6000,
-  pmPoshan: 12750,
-  pmPoshanCostPerMeal: 12.13, // rupees, primary, all-in incl. foodgrain, effective May 2025
-  pmay: 76542,
-  pmayPerHouse: 120000,
-  deptSpace: 13705.63,
-  externalAffairs: 22118.97,
-  interestPayments: 1403971.79,
-  tejasDealCr: 62370,
-  tejasJets: 97
-};
-const SECONDS_PER_YEAR = 365 * 24 * 60 * 60;
-
-// "Budget Profile" flow diagram, Budget at a Glance, BE 2026-27 (₹ lakh crore, converted to crore here)
-const CSS_SCHEMES_TOTAL_LAKHCR = 5.49;
-const CENTRAL_SECTOR_TOTAL_LAKHCR = 17.72;
-const CSS_BREAKDOWN = [
-  { name: 'General Services', lakhCr: 2.62, slot: 's1' },
-  { name: 'Economic Services', lakhCr: 9.16, slot: 's3' },
-  { name: 'Social Services', lakhCr: 0.75, slot: 's4' },
-  { name: 'Subsidy', lakhCr: 4.55, slot: 's2' },
-  { name: 'Other', lakhCr: 0.64, slot: 's7' }
-];
-const SUBSIDY_BREAKDOWN = [
-  { name: 'Food (mainly PMGKAY)', lakhCr: 2.28, slot: 's2' },
-  { name: 'Fertiliser (Urea + Nutrient-Based)', lakhCr: 1.71, slot: 's4' },
-  { name: 'Petroleum (LPG etc.)', lakhCr: 0.12, slot: 's8' },
-  { name: 'Other subsidy', lakhCr: 0.44, slot: 's7' }
-];
-const TRANSFERS_BREAKDOWN = [
-  { name: 'Other Central Expenditure (incl. interest ₹14.04L cr)', lakhCr: 17.61, slot: 's2' },
-  { name: 'Establishment Expenditure (salary, pension)', lakhCr: 8.24, slot: 's7' },
-  { name: 'Transfers to States/others', lakhCr: 4.41, slot: 's6' }
-];
-
-// 16th Finance Commission inter-se devolution shares, 2026-31 award period
-const STATES_SHARE_PCT = [
-  { name: 'Uttar Pradesh', pct: 17.62 },
-  { name: 'Bihar', pct: 9.95 },
-  { name: 'Madhya Pradesh', pct: 7.35 },
-  { name: 'West Bengal', pct: 7.22 },
-  { name: 'Maharashtra', pct: 6.44 },
-  { name: 'Rajasthan', pct: 5.93 },
-  { name: 'Karnataka', pct: 4.13 },
-  { name: 'Tamil Nadu', pct: 4.10 }
-];
-const STATES_SHARE_OTHER_PCT = 100 - STATES_SHARE_PCT.reduce((a, s) => a + s.pct, 0);
-
-// Statement 7 "Outlay on Major Schemes" (BE 2026-27 > ₹1,000 crore), ranked by allocation
-const CSS_SCHEMES = [
-  { name: 'Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin)', cr: 95692, benef: 'Rural workers — 125 days/year guaranteed work (MGNREGA\'s successor)' },
-  { name: 'Jal Jeevan Mission', cr: 67670, benef: 'Rural households getting piped drinking water connections' },
-  { name: 'PM Awas Yojana – Rural', cr: 54917, benef: 'Rural families without a pucca house' },
-  { name: 'Samagra Shiksha', cr: 42100, benef: 'School students, grades 1-12, govt. & aided schools' },
-  { name: 'Flexible Pool for RCH & Health Systems (National Health Mission)', cr: 31820, benef: 'Primary healthcare — maternal & child health, disease control' },
-  { name: 'MGNREGA – Programme Component (being wound down)', cr: 30000, benef: 'Rural workers under the outgoing 100-day guarantee' },
-  { name: 'Saksham Anganwadi & POSHAN 2.0', cr: 23100, benef: 'Children under 6, pregnant & lactating women' },
-  { name: 'DAY-NRLM (rural livelihoods)', cr: 19200, benef: 'Rural women in self-help groups' },
-  { name: 'PM Gram Sadak Yojana', cr: 19000, benef: 'Villages getting all-weather road connectivity' },
-  { name: 'PM Awas Yojana – Urban', cr: 18625, benef: 'Urban poor & informal-sector families without a pucca house' },
-  { name: 'PM POSHAN (mid-day meals)', cr: 12750, benef: 'School children — free cooked meals' },
-  { name: 'Ayushman Bharat – PM-JAY', cr: 9500, benef: 'Poor & vulnerable families — ₹5 lakh/year health cover' }
-];
-const CS_SCHEMES = [
-  { name: 'Pradhan Mantri Garib Kalyan Anna Yojana (PMGKAY)', cr: 227429, benef: '~80 crore NFSA beneficiaries — free foodgrain' },
-  { name: 'National Highways Authority of India', cr: 187293, benef: 'Highway construction & maintenance — commuters, freight' },
-  { name: 'Road Works', cr: 121999, benef: 'Non-NHAI road construction' },
-  { name: 'Urea Subsidy', cr: 116805, benef: 'Farmers — subsidised urea prices' },
-  { name: 'Aircraft & Aero Engines (Defence)', cr: 63734, benef: 'Air Force & Navy — aircraft procurement' },
-  { name: 'PM-KISAN', cr: 63500, benef: '~9.7 crore farmer families — ₹6,000/year direct transfer' },
-  { name: 'Nutrient Based Subsidy', cr: 54000, benef: 'Farmers — subsidised non-urea fertiliser (DAP, NPK etc.)' },
-  { name: 'Rolling Stock (Railways)', cr: 52109, benef: 'New coaches, wagons, locomotives' },
-  { name: 'Naval Fleet', cr: 25024, benef: 'Navy — ship procurement' },
-  { name: 'Compensation to Telecom Service Providers', cr: 24000, benef: 'Rural/remote telecom connectivity viability funding' },
-  { name: 'Modified Interest Subvention Scheme', cr: 22600, benef: 'Farmers — subsidised interest on crop loans' },
-  { name: 'PM Surya Ghar Muft Bijli Yojana', cr: 22000, benef: 'Households installing rooftop solar' }
-];
-
-// ---------- Rendering ----------
-const taxInput = document.getElementById('taxInput');
-
-function render() {
-  const taxPaid = parseFloat((taxInput.value || '0').replace(/[^0-9.]/g, '')) || 0;
-  const pool = taxPaid * FISCAL.multiplier;
-
-  document.getElementById('shareValue').textContent = fmtRupees(pool, 2);
-  document.getElementById('shareNote').textContent =
-    `The government plans to spend ${fmtLakhCr(FISCAL.totalExpenditure)} in FY2026-27 but will collect only ${fmtLakhCr(FISCAL.totalReceiptsExclBorrowing)} — the remaining ${fmtLakhCr(FISCAL.fiscalDeficit)} (${FISCAL.fiscalDeficitPctGDP}% of GDP) is borrowed.`;
-
-  renderFunc(pool);
-  renderMin(pool);
-  renderFacts(pool);
-  renderSchemes(pool);
-}
-
-function renderFunc(pool) {
-  const list = document.getElementById('funcList');
-  list.innerHTML = '';
-  const maxPct = Math.max(...RUPEE_GOES_TO.map(r => r.pct));
-  RUPEE_GOES_TO.forEach(r => {
-    const amt = pool * r.pct / 100;
-    const row = document.createElement('div');
-    row.className = 'func-row';
-    row.innerHTML = `
-      <div class="top-line">
-        <span class="swatch" style="background:var(--${r.slot})"></span>
-        <span class="name">${r.name}<small>${r.note}</small></span>
-        <span class="amt">${fmtRupees(amt, 2)}</span>
-        <span class="pct">${r.pct}%</span>
+function renderTools() {
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML = TOOLS.map((t, i) => `
+    <div class="tool-card" data-tool-index="${i}">
+      <div class="tag-row">
+        <div class="tag">${t.tag}</div>
+        ${t.checkUrl ? `<div class="status-pill is-checking" data-status><span class="dot"></span><span data-status-text>Checking…</span></div>` : ''}
       </div>
-      <div class="func-bar-track"><div class="func-bar-fill" style="width:${(r.pct / maxPct * 100).toFixed(1)}%; background:var(--${r.slot}); color:var(--${r.slot})"></div></div>`;
-    list.appendChild(row);
-  });
-}
-
-function renderMin(pool) {
-  const list = document.getElementById('minList');
-  list.innerHTML = '';
-  const max = MINISTRIES[0].cr;
-  MINISTRIES.forEach(m => {
-    const pct = m.cr / FISCAL.totalExpenditure * 100;
-    const amt = pool * m.cr / FISCAL.totalExpenditure;
-    const row = document.createElement('div');
-    row.className = 'min-row';
-    row.innerHTML = `
-      <div class="top">
-        <span>${m.name}</span>
-        <span class="amt">${fmtRupees(amt, 2)} · ${pct.toFixed(1)}%</span>
+      <h2>${t.title}</h2>
+      <p>${t.desc}</p>
+      ${t.offlineHelp ? `<div class="offline-help" data-offline-help>${t.offlineHelp}</div>` : ''}
+      <div class="tool-actions">
+        <a class="tool-btn" href="${t.url}" target="_blank" rel="noopener">Open →</a>
+        ${t.checkUrl ? `<button type="button" class="recheck-btn" data-recheck>Check again</button>` : ''}
       </div>
-      <div class="min-bar-track"><div class="min-bar-fill" style="width:${(m.cr / max * 100).toFixed(1)}%"></div></div>`;
-    list.appendChild(row);
+    </div>
+  `).join('');
+
+  TOOLS.forEach((t, i) => { if (t.checkUrl) checkStatus(i, t.checkUrl); });
+
+  grid.querySelectorAll('[data-recheck]').forEach((btn, idx) => {
+    const serverTools = TOOLS.map((t, i) => ({ t, i })).filter(x => x.t.checkUrl);
+    const { t, i } = serverTools[idx];
+    btn.onclick = () => {
+      btn.disabled = true;
+      checkStatus(i, t.checkUrl).finally(() => { btn.disabled = false; });
+    };
   });
 }
 
-function schemeShare(pool, cr) { return pool * cr / FISCAL.totalExpenditure; }
-
-function renderFacts(pool) {
-  const grid = document.getElementById('factsGrid');
-  const defenceShare = schemeShare(pool, MINISTRIES_RAW[0].cr); // full MoD outlay
-  const interestShare = pool * 0.20;
-  const jetCost = crToRupees(SCHEMES.tejasDealCr) / SCHEMES.tejasJets;
-  const jetTaxpayers = defenceShare > 0 ? Math.round(jetCost / defenceShare) : null;
-
-  const spendPerSecond = crToRupees(FISCAL.totalExpenditure) / SECONDS_PER_YEAR;
-  const taxLifespanSec = spendPerSecond > 0 ? (currentTaxPaid() / spendPerSecond) : 0;
-
-  const vbGramShare = schemeShare(pool, SCHEMES.vbGramG);
-  const pmKisanShare = schemeShare(pool, SCHEMES.pmKisan);
-  const pmKisanPct = pmKisanShare > 0 ? (pmKisanShare / SCHEMES.pmKisanPerFamily * 100) : null;
-  const pmPoshanShare = schemeShare(pool, SCHEMES.pmPoshan);
-  const pmPoshanMeals = pmPoshanShare > 0 ? Math.round(pmPoshanShare / SCHEMES.pmPoshanCostPerMeal) : 0;
-  const pmayShare = schemeShare(pool, SCHEMES.pmay);
-  const pmayTaxpayers = pmayShare > 0 ? Math.round(SCHEMES.pmayPerHouse / pmayShare) : null;
-  const spaceShare = schemeShare(pool, SCHEMES.deptSpace);
-  const stateShare = pool * 0.22;
-  const eaShare = schemeShare(pool, SCHEMES.externalAffairs);
-
-  const facts = [
-    {
-      tag: 'Defence',
-      headline: `Your full Defence share is <b>${fmtRupees(defenceShare, 2)}</b>`,
-      body: jetTaxpayers
-        ? `It takes about ${jetTaxpayers.toLocaleString('en-IN')} taxpayers like you to fund one Tejas Mk1A fighter jet (₹${SCHEMES.tejasDealCr.toLocaleString('en-IN')} crore for 97 jets ordered Dec 2025, ≈₹643 crore each).`
-        : `Enter your tax paid above to see the comparison.`,
-      src: 'Ministry of Defence total outlay (revenue + capital + pensions), BE 2026-27; Tejas Mk1A order value from Dec 2025 contract.'
-    },
-    {
-      tag: 'Debt',
-      headline: `Your interest share is <b>${fmtRupees(interestShare, 2)}</b>`,
-      body: `That's ${fmtRupees(interestShare,2)} that goes to interest on past borrowing — not a road, school or clinic. The government pays about ${fmtRupees(crToRupees(SCHEMES.interestPayments)/SECONDS_PER_YEAR,0)} every second in interest alone.`,
-      src: 'Budget at a Glance, Interest Payments line, BE 2026-27.'
-    },
-    {
-      tag: 'General',
-      headline: `Your entire payment is spent in <b>${taxLifespanSec < 1 ? (taxLifespanSec*1000).toFixed(1)+' milliseconds' : taxLifespanSec.toFixed(2)+' seconds'}</b>`,
-      body: `The Union government spends its full ${fmtLakhCr(FISCAL.totalExpenditure)} budget at a rate of about ${fmtRupees(spendPerSecond,0)} per second.`,
-      src: 'Own calculation from Total Expenditure, BE 2026-27, ÷ seconds in FY.'
-    },
-    {
-      tag: 'Rural employment',
-      headline: `Your rural-employment share is <b>${fmtRupees(vbGramShare, 2)}</b>`,
-      body: `MGNREGA was repealed on 1 July 2026 and replaced by the Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, which raises the annual work guarantee from 100 to 125 days.`,
-      src: 'PIB; Budget at a Glance Statement 7, BE 2026-27.'
-    },
-    {
-      tag: 'Farmers',
-      headline: `Your PM-KISAN share is <b>${fmtRupees(pmKisanShare, 2)}</b>`,
-      body: pmKisanPct !== null
-        ? (pmKisanPct >= 100
-            ? `That covers a full farmer family's annual support (₹6,000/year, paid in three ₹2,000 installments) ${pmKisanPct >= 200 ? 'with room to spare' : ''}.`
-            : `That covers about ${pmKisanPct.toFixed(0)}% of one farmer family's full-year support (₹6,000/year, paid in three ₹2,000 installments).`)
-        : ``,
-      src: 'PM-KISAN scheme allocation, Budget at a Glance Statement 7, BE 2026-27.'
-    },
-    {
-      tag: 'School meals',
-      headline: `Your school-meal share is <b>${fmtRupees(pmPoshanShare, 2)}</b>`,
-      body: `At ₹${SCHEMES.pmPoshanCostPerMeal.toFixed(2)} per meal (primary, all-in cost incl. foodgrain), that funds about ${pmPoshanMeals.toLocaleString('en-IN')} PM POSHAN meals.`,
-      src: 'Ministry of Education, cooking cost norms effective May 2025; PM POSHAN allocation, BE 2026-27.'
-    },
-    {
-      tag: 'Housing',
-      headline: `Your housing-subsidy share is <b>${fmtRupees(pmayShare, 2)}</b>`,
-      body: pmayTaxpayers
-        ? `It takes about ${pmayTaxpayers.toLocaleString('en-IN')} taxpayers like you to fund one PMAY-Gramin house subsidy (₹1.2 lakh).`
-        : ``,
-      src: 'PMAY (Rural + Urban + Urban 2.0) combined allocation, BE 2026-27.'
-    },
-    {
-      tag: 'Space',
-      headline: `Your space-programme share is <b>${fmtRupees(spaceShare, 2)}</b>`,
-      body: `The Department of Space's entire FY2026-27 budget — all of ISRO — is ${fmtCr(SCHEMES.deptSpace)}, just ${(SCHEMES.deptSpace/FISCAL.totalExpenditure*100).toFixed(2)}% of total Union spending.`,
-      src: 'Notes on Demands for Grants 2026-27, Department of Space.'
-    },
-    {
-      tag: 'Federalism',
-      headline: `Your biggest single line isn't a ministry — it's <b>${fmtRupees(stateShare, 2)}</b>`,
-      body: `That's automatically devolved to state governments as their constitutionally mandated share of central taxes, before the Union spends a rupee of its own discretion.`,
-      src: 'Budget at a Glance, "Rupee Goes To", States\' Share of Taxes, BE 2026-27.'
-    },
-    {
-      tag: 'Diplomacy',
-      headline: `Your foreign-affairs share is <b>${fmtRupees(eaShare, 2)}</b>`,
-      body: `The entire Ministry of External Affairs — every Indian embassy, consulate and foreign-aid programme worldwide — runs on ${fmtCr(SCHEMES.externalAffairs)}, ${(SCHEMES.externalAffairs/FISCAL.totalExpenditure*100).toFixed(2)}% of total spending.`,
-      src: 'Notes on Demands for Grants 2026-27, Ministry of External Affairs.'
-    }
-  ];
-
-  grid.innerHTML = facts.map(f => `
-    <div class="fact-card">
-      <div class="tag">${f.tag}</div>
-      <div class="headline">${f.headline}</div>
-      <p>${f.body}</p>
-      <div class="src">Source: ${f.src}</div>
-    </div>`).join('');
+function checkStatus(index, checkUrl) {
+  const card = document.querySelector(`.tool-card[data-tool-index="${index}"]`);
+  const pill = card.querySelector('[data-status]');
+  const label = card.querySelector('[data-status-text]');
+  const help = card.querySelector('[data-offline-help]');
+  pill.className = 'status-pill is-checking';
+  label.textContent = 'Checking…';
+  return fetch(checkUrl, { mode: 'no-cors', cache: 'no-store' })
+    .then(() => {
+      pill.className = 'status-pill is-online';
+      label.textContent = 'Running';
+      if (help) help.classList.remove('show');
+    })
+    .catch(() => {
+      pill.className = 'status-pill is-offline';
+      label.textContent = 'Not running';
+      if (help) help.classList.add('show');
+    });
 }
 
-function currentTaxPaid() {
-  return parseFloat((taxInput.value || '0').replace(/[^0-9.]/g, '')) || 0;
-}
-
-function drawFlowBar(barId, legendId, items, total) {
-  const bar = document.getElementById(barId);
-  const legend = document.getElementById(legendId);
-  bar.innerHTML = items.map(it => {
-    const pct = it.lakhCr / total * 100;
-    return `<div class="flow-seg" style="width:${pct}%; background:var(--${it.slot})" title="${it.name}: ₹${it.lakhCr} lakh crore">${pct > 8 ? pct.toFixed(0) + '%' : ''}</div>`;
-  }).join('');
-  legend.innerHTML = items.map(it =>
-    `<span><span class="dot" style="background:var(--${it.slot})"></span>${it.name} — ₹${it.lakhCr}L cr</span>`
-  ).join('');
-}
-
-function renderSchemes(pool) {
-  drawFlowBar('flowCSS', 'flowCSSLegend', CSS_BREAKDOWN, CENTRAL_SECTOR_TOTAL_LAKHCR);
-  drawFlowBar('flowSubsidy', 'flowSubsidyLegend', SUBSIDY_BREAKDOWN, 4.55);
-  drawFlowBar('flowTransfers', 'flowTransfersLegend', TRANSFERS_BREAKDOWN, 30.26);
-
-  document.getElementById('statesShareLakhCr').textContent = (FISCAL.statesShareOfTaxes / 100000).toFixed(2);
-
-  const statesShareTotal = pool * 0.22; // Rupee Goes To: States' Share of Taxes & Duties, 22%
-  const statesRows = STATES_SHARE_PCT.map(s => `
-    <tr>
-      <td>${s.name}</td>
-      <td class="num">${s.pct.toFixed(2)}%</td>
-      <td class="num">${fmtRupees(statesShareTotal * s.pct / 100, 2)}</td>
-    </tr>`).join('') + `
-    <tr>
-      <td>All other states &amp; UTs</td>
-      <td class="num">${STATES_SHARE_OTHER_PCT.toFixed(2)}%</td>
-      <td class="num">${fmtRupees(statesShareTotal * STATES_SHARE_OTHER_PCT / 100, 2)}</td>
-    </tr>`;
-  document.getElementById('statesTable').innerHTML = statesRows;
-
-  document.getElementById('cssTable').innerHTML = CSS_SCHEMES.map(s => `
-    <tr>
-      <td><div class="scheme-name">${s.name}</div><div class="scheme-benef">${s.benef}</div></td>
-      <td class="num">${fmtCr(s.cr)}</td>
-      <td class="num">${fmtRupees(schemeShare(pool, s.cr), 2)}</td>
-    </tr>`).join('');
-
-  document.getElementById('csTable').innerHTML = CS_SCHEMES.map(s => `
-    <tr>
-      <td><div class="scheme-name">${s.name}</div><div class="scheme-benef">${s.benef}</div></td>
-      <td class="num">${fmtCr(s.cr)}</td>
-      <td class="num">${fmtRupees(schemeShare(pool, s.cr), 2)}</td>
-    </tr>`).join('');
-}
-
-// tabs
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
-  });
-});
-
-taxInput.addEventListener('input', render);
-
-// init
-document.getElementById('mgnregaText').textContent =
-  `MGNREGA, the 20-year-old rural employment guarantee law, was repealed on 1 July 2026. It has been replaced by the Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025 (VB-G RAM G), which raises the statutory work guarantee from 100 to 125 days a year, restores unemployment allowance, and refocuses works on water security, rural infrastructure, livelihoods and climate-resilience. BE 2026-27 allocates ₹${SCHEMES.vbGramG.toLocaleString('en-IN')} crore to the new scheme.`;
-
-taxInput.value = '0';
-render();
+renderTools();
 </script>
 </body>
 </html>
