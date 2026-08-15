@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Where Did My Income Tax Go? — India, FY2026-27</title>
+<title>Where Did My Income Tax Go? — India, FY2025-26</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&family=Fredoka:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -88,6 +88,7 @@
     color: var(--muted);
     font-size: 13px;
   }
+  header p.meta a { color: var(--accent); }
   .card {
     background: var(--card-bg);
     border: var(--border-w) solid var(--border);
@@ -295,8 +296,8 @@
 
 <header>
   <h1>Where did my income tax go?</h1>
-  <p class="sub">Enter what you paid in personal income tax and see how the Union government allocates your share of spending — based on the Union Budget 2026-27.</p>
-  <p class="meta">Budget Estimates (BE) 2026-27, presented 1 February 2026 · Figures from the Ministry of Finance's Budget at a Glance</p>
+  <p class="sub">Enter what you paid in personal income tax for FY2025-26 and see how the Union government's own spending plan for that same year allocated your share — based on the Union Budget 2025-26.</p>
+  <p class="meta">Budget Estimates (BE) 2025-26, presented 1 February 2025 · Figures from the Ministry of Finance's Budget at a Glance</p>
 </header>
 
 <div class="card">
@@ -305,7 +306,7 @@
     <input type="text" inputmode="numeric" id="taxInput" aria-label="Income tax paid">
   </div>
   <div class="input-help">
-    What you paid in personal income tax (see Form 26AS or your ITR acknowledgment)
+    What you paid in personal income tax for FY2025-26 (April 2025 – March 2026) — see Form 26AS or your ITR acknowledgment (AY2026-27)
   </div>
 
   <div class="share-panel">
@@ -332,27 +333,27 @@
   </div>
 
   <div class="panel" id="panel-scheme">
-    <p class="flow-intro">The ₹53.47 lakh crore budget splits three ways: <b>Scheme Expenditure</b> (₹23.21 lakh crore — money tied to a specific programme), <b>Transfers, Establishment &amp; Other Expenditure</b> (₹30.26 lakh crore — interest, pensions, salaries, transfers to states) and, within transfers, the unconditional <b>states' share of taxes</b>. Here's what's inside each, using the Ministry of Finance's own "Budget Profile" breakdown.</p>
+    <p class="flow-intro">The ₹50.65 lakh crore budget splits three ways: <b>Scheme Expenditure</b> (₹21.64 lakh crore — money tied to a specific programme), <b>Transfers, Establishment &amp; Other Expenditure</b> (₹29.01 lakh crore — interest, pensions, salaries, transfers to states) and, within transfers, the unconditional <b>states' share of taxes</b>. Here's what's inside each, using the Ministry of Finance's own "Budget Profile" breakdown.</p>
 
     <div class="flow-block">
-      <div class="flow-title"><span>Central Sector Schemes</span><span>₹17.72 lakh crore</span></div>
+      <div class="flow-title"><span>Central Sector Schemes</span><span>₹16.22 lakh crore</span></div>
       <div class="flow-bar" id="flowCSS"></div>
       <div class="flow-legend" id="flowCSSLegend"></div>
     </div>
     <div class="flow-block">
-      <div class="flow-title"><span>— of which, Subsidy</span><span>₹4.55 lakh crore</span></div>
+      <div class="flow-title"><span>— of which, Subsidy</span><span>₹4.26 lakh crore</span></div>
       <div class="flow-bar" id="flowSubsidy"></div>
       <div class="flow-legend" id="flowSubsidyLegend"></div>
     </div>
     <div class="flow-block">
-      <div class="flow-title"><span>Transfers, Establishment &amp; Other Expenditure</span><span>₹30.26 lakh crore</span></div>
+      <div class="flow-title"><span>Transfers, Establishment &amp; Other Expenditure</span><span>₹29.01 lakh crore</span></div>
       <div class="flow-bar" id="flowTransfers"></div>
       <div class="flow-legend" id="flowTransfersLegend"></div>
     </div>
-    <p class="subsection-sub" style="margin-top:-4px;">Source: Budget at a Glance, "Budget Profile," BE 2026-27. Note: "Central Sector Schemes" here (₹17.72 lakh crore, includes defence procurement &amp; subsidies) is a different, broader definition than the "Central Sector Schemes" slice in the By Function tab (11%/17% figures there exclude defence capital and major subsidies) — the two budget documents categorise the same spending differently.</p>
+    <p class="subsection-sub" style="margin-top:-4px;">Source: Budget at a Glance, "Budget Profile," BE 2025-26. Note: "Central Sector Schemes" here (₹16.22 lakh crore, includes defence procurement &amp; subsidies) is a different, broader definition than the "Central Sector Schemes" slice in the By Function tab (8%/16% figures there exclude defence capital and major subsidies) — the two budget documents categorise the same spending differently.</p>
 
     <h3 class="subsection-title">Where the states' share actually goes</h3>
-    <div class="states-note">This ₹<span id="statesShareLakhCr"></span> lakh crore is <b>unconditional</b> — once devolved, it becomes part of each state's own budget, spent entirely at that state's discretion (salaries, pensions, roads, welfare schemes, anything). The Union government doesn't track how it's spent. What <em>is</em> tracked is which states get how much, set by the 16th Finance Commission's formula (income distance 42.5%, population 17.5%, demographic performance 10%, area 10%, forest 10%, GDP contribution 10%).</div>
+    <div class="states-note">This ₹<span id="statesShareLakhCr"></span> lakh crore is <b>unconditional</b> — once devolved, it becomes part of each state's own budget, spent entirely at that state's discretion (salaries, pensions, roads, welfare schemes, anything). The Union government doesn't track how it's spent. What <em>is</em> tracked is which states get how much, set by the 15th Finance Commission's formula (income distance 45%, population 15%, area 15%, forest &amp; ecology 10%, demographic performance 12.5%, tax effort 2.5%).</div>
     <div class="scheme-table-wrap">
       <table class="scheme-table">
         <thead><tr><th>State</th><th class="num">Formula share</th><th class="num">Your contribution</th></tr></thead>
@@ -361,23 +362,23 @@
     </div>
 
     <h3 class="subsection-title">Top Centrally Sponsored Schemes</h3>
-    <p class="subsection-sub">Co-funded with states — the Union sets the programme, states help run it. Ranked by BE 2026-27 allocation.</p>
+    <p class="subsection-sub">Co-funded with states — the Union sets the programme, states help run it. Ranked by BE 2025-26 allocation.</p>
     <div class="scheme-table-wrap">
       <table class="scheme-table">
-        <thead><tr><th>Scheme</th><th class="num">BE 2026-27</th><th class="num">Your share</th></tr></thead>
+        <thead><tr><th>Scheme</th><th class="num">BE 2025-26</th><th class="num">Your share</th></tr></thead>
         <tbody id="cssTable"></tbody>
       </table>
     </div>
 
     <h3 class="subsection-title">Top Central Sector Schemes</h3>
-    <p class="subsection-sub">Fully Union-funded, run directly by central ministries. Ranked by BE 2026-27 allocation among schemes with an identifiable public purpose (generic procurement/accounting heads excluded).</p>
+    <p class="subsection-sub">Fully Union-funded, run directly by central ministries. Ranked by BE 2025-26 allocation among schemes with an identifiable public purpose (generic procurement/accounting heads excluded).</p>
     <div class="scheme-table-wrap">
       <table class="scheme-table">
-        <thead><tr><th>Scheme</th><th class="num">BE 2026-27</th><th class="num">Your share</th></tr></thead>
+        <thead><tr><th>Scheme</th><th class="num">BE 2025-26</th><th class="num">Your share</th></tr></thead>
         <tbody id="csTable"></tbody>
       </table>
     </div>
-    <p class="subsection-sub">Source: Budget at a Glance, Statement 7 — "Outlay on Major Schemes" (schemes with BE 2026-27 allocation over ₹1,000 crore), Ministry of Finance.</p>
+    <p class="subsection-sub">Source: Budget at a Glance, "Outlay on Major Schemes" (schemes with BE 2025-26 allocation over ₹1,000 crore), Ministry of Finance.</p>
   </div>
 </div>
 
@@ -386,14 +387,14 @@
 
 <h2 class="section-title">Policy in context</h2>
 <div class="context-card">
-  <h3>MGNREGA has been repealed</h3>
+  <h3>MGNREGA was still the operative scheme all through FY2025-26</h3>
   <p id="mgnregaText"></p>
-  <p class="src">Source: <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207187&reg=3&lang=1" target="_blank" rel="noopener">PIB — President's assent to the VB-G RAM G Bill, 2025</a>, <a href="https://prsindia.org/billtrack/the-viksit-bharat-%E2%80%93-guarantee-for-rozgar-and-ajeevika-mission-gramin-vb-%E2%80%93-g-ram-g-bill-2025" target="_blank" rel="noopener">PRS Legislative Research bill track</a>; Budget at a Glance, Statement 7</p>
+  <p class="src">Source: Budget at a Glance, "Outlay on Major Schemes," BE 2025-26; <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207187&reg=3&lang=1" target="_blank" rel="noopener">PIB — President's assent to the VB-G RAM G Bill, 2025</a> (for context on the later repeal), <a href="https://prsindia.org/billtrack/the-viksit-bharat-%E2%80%93-guarantee-for-rozgar-and-ajeevika-mission-gramin-vb-%E2%80%93-g-ram-g-bill-2025" target="_blank" rel="noopener">PRS Legislative Research bill track</a></p>
 </div>
 <div class="context-card">
   <h3>The 22% "states' share" isn't the same as the Finance Commission's 41%</h3>
-  <p>The 16th Finance Commission (2026-31 award period, chaired by Arvind Panagariya) retained the states' vertical devolution share at <b>41% of the divisible pool</b> — unchanged from the 15th Finance Commission — a recommendation the Union government has accepted. The 22% figure in the chart above is a different number: it's states' tax devolution as a share of <em>total Union government spending</em>, which is a smaller base than the divisible pool (the divisible pool excludes cesses, surcharges and the cost of collection, which have grown as a share of gross tax revenue over the past decade — one reason states have long argued the effective devolution is lower than the headline 41%).</p>
-  <p class="src">Source: 16th Finance Commission report, tabled in Parliament 1 February 2026 — summarised by <a href="https://prsindia.org/policy/report-summaries/report-of-the-16th-finance-commission-for-2026-31" target="_blank" rel="noopener">PRS Legislative Research</a> and <a href="https://www.business-standard.com/budget/news/16th-finance-commission-retains-41-percent-devolution-gdp-criterion-126020101042_1.html" target="_blank" rel="noopener">Business Standard</a></p>
+  <p>The 15th Finance Commission (2021-26 award period, chaired by N.K. Singh) set the states' vertical devolution share at <b>41% of the divisible pool</b> — the same headline number the 16th Finance Commission later retained for 2026-31. The 22% figure in the chart above is a different number: it's states' tax devolution as a share of <em>total Union government spending</em>, which is a smaller base than the divisible pool (the divisible pool excludes cesses, surcharges and the cost of collection, which have grown as a share of gross tax revenue over the past decade — one reason states have long argued the effective devolution is lower than the headline 41%).</p>
+  <p class="src">Source: 15th Finance Commission Main Report, Vol. I, Chapter 6 (<a href="https://fincomindia.nic.in/asset/doc/commission-reports/XVFC%20VOL%20I%20Main%20Report.pdf" target="_blank" rel="noopener">fincomindia.nic.in</a>) — summarised by <a href="https://prsindia.org/policy/report-summaries/report-15th-finance-commission-2021-26" target="_blank" rel="noopener">PRS Legislative Research</a></p>
 </div>
 
 <h2 class="section-title" id="methodology">Methodology &amp; assumptions</h2>
@@ -402,14 +403,15 @@
     <div class="method-group">
       <h4>Data</h4>
       <ul>
-        <li>Figures are Budget Estimates (BE) 2026-27 — the plan as of 1 Feb 2026, not final actuals.</li>
+        <li>Figures are the original Budget Estimates (BE) 2025-26 — the plan as of 1 Feb 2025, before the fiscal year began — not the mid-year Revised Estimates or final CAG-audited actuals.</li>
+        <li>This is deliberate: it's the year-matched companion to the FY2026-27 tool, so the tax you paid and the spending plan it's compared against are pinned to the <em>same</em> fiscal year, rather than your latest tax payment being mapped onto a different year's budget.</li>
       </ul>
     </div>
     <div class="method-group">
       <h4>"Your share" calculation</h4>
       <ul>
         <li>Covers income tax only — not GST, customs, or excise you also pay.</li>
-        <li>The 1.4644× multiplier assumes tax money is pooled, not earmarked: it reflects the deficit split proportionally across all revenue sources, not something specific to income tax.</li>
+        <li>The 1.4487× multiplier assumes tax money is pooled, not earmarked: it reflects the deficit split proportionally across all revenue sources, not something specific to income tax.</li>
       </ul>
     </div>
     <div class="method-group">
@@ -428,10 +430,10 @@
     <div class="method-group">
       <h4>Scheme &amp; Transfer Details tab</h4>
       <ul>
-        <li>Scheme lists cover only schemes over ₹1,000 crore (Statement 7) — smaller schemes aren't shown.</li>
+        <li>Scheme lists cover only schemes over ₹1,000 crore ("Outlay on Major Schemes") — smaller schemes aren't shown.</li>
         <li>The Central Sector Schemes list excludes generic procurement/accounting line items by editorial choice.</li>
-        <li>"Central Sector Schemes" has two different official definitions across budget documents — the % in By Function excludes defence capital &amp; subsidies; the ₹17.72L cr figure here includes them.</li>
-        <li>"Other subsidy" (₹0.44L cr) is a balancing figure, not an officially labeled government category.</li>
+        <li>"Central Sector Schemes" has two different official definitions across budget documents — the % in By Function excludes defence capital &amp; subsidies; the ₹16.22L cr figure here includes them.</li>
+        <li>"PM Awas Yojana – Urban" combines the original PMAY-Urban and PMAY-Urban 2.0 allocations.</li>
         <li>The states' table covers tax devolution only — Centrally Sponsored Schemes and Finance Commission grants to states follow separate, non-formula allocations.</li>
         <li>Only the top 8 states are shown individually; the rest are "All other states &amp; UTs."</li>
       </ul>
@@ -439,10 +441,10 @@
     <div class="method-group">
       <h4>"Did You Know" cards</h4>
       <ul>
-        <li>Jet cost is from one December 2025 order — actual per-unit cost varies by deal.</li>
+        <li>Jet cost is from one December 2025 order (within FY2025-26) — actual per-unit cost varies by deal.</li>
         <li>"Taxpayers needed to fund X" assumes everyone pays exactly your amount.</li>
         <li>Per-second figures assume spending is spread evenly across the year — real government spending is uneven.</li>
-        <li>PM POSHAN cost shown is the primary-school rate; upper-primary is higher.</li>
+        <li>PM POSHAN cost shown is the primary-school rate effective May 2025 (within FY2025-26); upper-primary is higher.</li>
       </ul>
     </div>
   </div>
@@ -451,19 +453,17 @@
 <h2 class="section-title">Sources</h2>
 <div class="card sources">
   <ul>
-    <li><a href="https://www.indiabudget.gov.in/doc/Budget_at_Glance/bag1.pdf" target="_blank" rel="noopener">Budget at a Glance — headline figures, Rupee Comes From / Goes To</a></li>
-    <li><a href="https://www.indiabudget.gov.in/doc/Budget_at_Glance/bag5.pdf" target="_blank" rel="noopener">Budget at a Glance — Receipts (Statement 6)</a></li>
-    <li><a href="https://www.indiabudget.gov.in/doc/Budget_at_Glance/bag7.pdf" target="_blank" rel="noopener">Budget at a Glance — scheme allocations (Statement 7)</a></li>
-    <li><a href="https://www.indiabudget.gov.in/doc/eb/sumsbe.pdf" target="_blank" rel="noopener">Notes on Demands for Grants 2026-27 — ministry-wise summary</a></li>
-    <li><a href="https://www.indiabudget.gov.in/" target="_blank" rel="noopener">indiabudget.gov.in — full Union Budget 2026-27 documents</a></li>
-    <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207187&reg=3&lang=1" target="_blank" rel="noopener">PIB — VB-G RAM G Act, 2025 (MGNREGA repeal)</a></li>
-    <li><a href="https://prsindia.org/policy/report-summaries/report-of-the-16th-finance-commission-for-2026-31" target="_blank" rel="noopener">16th Finance Commission report summary — PRS Legislative Research</a></li>
-    <li><a href="https://www.business-standard.com/budget/news/16th-finance-commission-retains-41-percent-devolution-gdp-criterion-126020101042_1.html" target="_blank" rel="noopener">16th Finance Commission devolution — Business Standard</a></li>
+    <li><a href="https://www.indiabudget.gov.in/budget2025-26/doc/Budget_at_Glance/budget_at_a_glance.pdf" target="_blank" rel="noopener">Budget at a Glance 2025-26 — headline figures, Rupee Comes From / Goes To, receipts, Budget Profile, Outlay on Major Schemes</a></li>
+    <li><a href="https://www.indiabudget.gov.in/budget2025-26/doc/eb/sumsbe.pdf" target="_blank" rel="noopener">Notes on Demand for Grants 2025-26 — ministry-wise summary</a></li>
+    <li><a href="https://www.indiabudget.gov.in/budget2025-26/index.php" target="_blank" rel="noopener">indiabudget.gov.in — full Union Budget 2025-26 documents</a></li>
+    <li><a href="https://fincomindia.nic.in/asset/doc/commission-reports/XVFC%20VOL%20I%20Main%20Report.pdf" target="_blank" rel="noopener">15th Finance Commission Main Report, Vol. I (fincomindia.nic.in) — Chapter 6, Table 6.5</a></li>
+    <li><a href="https://prsindia.org/policy/report-summaries/report-15th-finance-commission-2021-26" target="_blank" rel="noopener">15th Finance Commission report summary — PRS Legislative Research</a></li>
+    <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207187&reg=3&lang=1" target="_blank" rel="noopener">PIB — VB-G RAM G Act, 2025 (MGNREGA repeal, for context — took effect after FY2025-26 ended)</a></li>
   </ul>
 </div>
 
 <footer>
-  This is an independent, unofficial tool for informational purposes only. All figures are Budget Estimates for FY2026-27 as presented by the Ministry of Finance, Government of India, unless marked otherwise. "Your share" allocates your income tax payment across spending categories using official budget shares, scaled by the ratio of total expenditure to total receipts (excluding borrowings) — it is an illustrative allocation, not an official tax receipt. Not affiliated with any government agency.
+  This is an independent, unofficial tool for informational purposes only. All figures are Budget Estimates for FY2025-26 as presented by the Ministry of Finance, Government of India, unless marked otherwise. "Your share" allocates your income tax payment across spending categories using official budget shares, scaled by the ratio of total expenditure to total receipts (excluding borrowings) — it is an illustrative allocation, not an official tax receipt. Not affiliated with any government agency.
   <br>Built for personal/editorial reference use.
 </footer>
 
@@ -505,47 +505,49 @@ function fmtRupees(n, decimals) {
 function fmtCr(cr) { return '₹' + Math.round(cr).toLocaleString('en-IN') + ' crore'; }
 function fmtLakhCr(cr) { return '₹' + (cr / 100000).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' lakh crore'; }
 
-// ---------- Verified data, Union Budget 2026-27 (BE), all crore figures ----------
+// ---------- Verified data, Union Budget 2025-26 (BE), all crore figures ----------
+// Source: Budget at a Glance 2025-26, indiabudget.gov.in/budget2025-26/doc/Budget_at_Glance/budget_at_a_glance.pdf
 const FISCAL = {
-  totalExpenditure: 5347315,
-  revenueReceipts: 3533150,
-  nonDebtCapitalReceipts: 118397,
-  fiscalDeficit: 1695768,
-  fiscalDeficitPctGDP: 4.3,
-  gdp: 39300393,
-  personalIncomeTaxGross: 1466000 // "Taxes on Income", incl. STT
+  totalExpenditure: 5065345,
+  revenueReceipts: 3420409,
+  nonDebtCapitalReceipts: 76000,
+  fiscalDeficit: 1568936,
+  fiscalDeficitPctGDP: 4.4,
+  gdp: 35697923,
+  personalIncomeTaxGross: 1438000 // "Taxes on Income", incl. STT
 };
 FISCAL.totalReceiptsExclBorrowing = FISCAL.revenueReceipts + FISCAL.nonDebtCapitalReceipts;
 FISCAL.multiplier = FISCAL.totalExpenditure / FISCAL.totalReceiptsExclBorrowing;
-FISCAL.statesShareOfTaxes = 1526255; // ₹ crore, BE 2026-27 — Budget at a Glance, Statement 6
+FISCAL.statesShareOfTaxes = 1422444; // ₹ crore, BE 2025-26 — Budget at a Glance, Receipts table
 
-// Official "Rupee Goes To" percentages, Budget at a Glance p.5 (Civil Pension folded into Other Expenditure)
+// Official "Rupee Goes To" percentages, Budget at a Glance p.3, BE 2025-26
 const RUPEE_GOES_TO = [
   { name: "States' Share of Taxes & Duties", pct: 22, slot: 's1', note: "Automatic devolution to states under the Finance Commission formula" },
   { name: "Interest Payments", pct: 20, slot: 's2', note: "Interest on past government borrowing" },
-  { name: "Central Sector Schemes", pct: 17, slot: 's3', note: "Fully central-funded schemes; excludes defence capital & major subsidies" },
-  { name: "Defence", pct: 11, slot: 's4', note: "Revenue defence spend — see By Ministry for full Defence outlay" },
-  { name: "Other Expenditure & Civil Pensions", pct: 9, slot: 's5', note: "7% other expenditure + 2% civil pensions" },
-  { name: "Centrally Sponsored Schemes", pct: 8, slot: 's6', note: "Schemes co-funded with states" },
-  { name: "Finance Commission & Other Transfers", pct: 7, slot: 's7', note: "FC grants and other transfers to states" },
-  { name: "Major Subsidies", pct: 6, slot: 's8', note: "Food, fertiliser and petroleum subsidies" }
+  { name: "Central Sector Scheme", pct: 16, slot: 's3', note: "Fully central-funded schemes; excludes defence capital acquisition & major subsidies" },
+  { name: "Defence", pct: 8, slot: 's4', note: "Revenue defence spend — see By Ministry for full Defence outlay" },
+  { name: "Centrally Sponsored Scheme", pct: 8, slot: 's6', note: "Schemes co-funded with states" },
+  { name: "Finance Commission & Other transfers", pct: 8, slot: 's7', note: "FC grants and other transfers to states" },
+  { name: "Other Expenditure", pct: 8, slot: 's5', note: "Autonomous bodies and other central expenditure" },
+  { name: "Major Subsidies", pct: 6, slot: 's8', note: "Food, fertiliser and petroleum subsidies" },
+  { name: "Pensions", pct: 4, slot: 's5', note: "Civil pensions (defence pensions counted under Defence By Ministry)" }
 ];
 
-// Ministry-wise, BE 2026-27, ₹ crore — Notes on Demands for Grants (sumsbe.pdf)
+// Ministry-wise, BE 2025-26, ₹ crore — Notes on Demand for Grants (sumsbe.pdf)
 const MINISTRIES_RAW = [
-  { name: "Defence", cr: 784678.28 },
-  { name: "Road Transport & Highways", cr: 309875.30 },
-  { name: "Railways", cr: 281377.32 },
-  { name: "Home Affairs", cr: 255233.53 },
-  { name: "Consumer Affairs, Food & Public Distribution", cr: 239521.37 },
-  { name: "Rural Development", cr: 197023.14 },
-  { name: "Chemicals & Fertilisers", cr: 177061.47 },
-  { name: "Agriculture & Farmers Welfare", cr: 140528.78 },
-  { name: "Education", cr: 139289.48 },
-  { name: "Health & Family Welfare", cr: 106530.42 },
-  { name: "Communications", cr: 102267.02 },
-  { name: "Jal Shakti", cr: 94807.84 },
-  { name: "Finance — interest, pensions, state transfers & tax admin", cr: 1972509.48 }
+  { name: "Defence", cr: 681210.27 },
+  { name: "Road Transport & Highways", cr: 287333.16 },
+  { name: "Railways", cr: 255445.18 },
+  { name: "Home Affairs", cr: 233210.68 },
+  { name: "Consumer Affairs, Food & Public Distribution", cr: 215767.09 },
+  { name: "Rural Development", cr: 190405.53 },
+  { name: "Chemicals & Fertilisers", cr: 161965.21 },
+  { name: "Agriculture & Farmers Welfare", cr: 137756.55 },
+  { name: "Education", cr: 128650.05 },
+  { name: "Communications", cr: 108105.10 },
+  { name: "Health & Family Welfare", cr: 99858.56 },
+  { name: "Jal Shakti", cr: 99502.85 },
+  { name: "Finance — interest, pensions, state transfers & tax admin", cr: 1939001.26 }
 ];
 const ministrySum = MINISTRIES_RAW.reduce((a, m) => a + m.cr, 0);
 const MINISTRIES = MINISTRIES_RAW.concat([
@@ -553,84 +555,84 @@ const MINISTRIES = MINISTRIES_RAW.concat([
 ]).sort((a, b) => b.cr - a.cr);
 
 const SCHEMES = {
-  vbGramG: 95692,          // replaces MGNREGA, effective 1 July 2026
+  mgnrega: 86000,           // still the operative 100-day scheme throughout FY2025-26
   pmKisan: 63500,
   pmKisanPerFamily: 6000,
-  pmPoshan: 12750,
-  pmPoshanCostPerMeal: 12.13, // rupees, primary, all-in incl. foodgrain, effective May 2025
-  pmay: 76542,
+  pmPoshan: 12500,
+  pmPoshanCostPerMeal: 12.13, // rupees, primary, all-in incl. foodgrain, effective May 2025 (within FY2025-26)
+  pmay: 78126,               // PMAY-Rural + PMAY-Urban + PMAY-Urban 2.0 combined, BE 2025-26
   pmayPerHouse: 120000,
-  deptSpace: 13705.63,
-  externalAffairs: 22118.97,
-  interestPayments: 1403971.79,
+  deptSpace: 13416.20,
+  externalAffairs: 20516.61,
+  interestPayments: 1276337.98,
   tejasDealCr: 62370,
   tejasJets: 97
 };
 const SECONDS_PER_YEAR = 365 * 24 * 60 * 60;
 
-// "Budget Profile" flow diagram, Budget at a Glance, BE 2026-27 (₹ lakh crore, converted to crore here)
-const CSS_SCHEMES_TOTAL_LAKHCR = 5.49;
-const CENTRAL_SECTOR_TOTAL_LAKHCR = 17.72;
+// "Budget Profile" flow diagram, Budget at a Glance, BE 2025-26 (₹ lakh crore, converted to crore here)
+const CSS_SCHEMES_TOTAL_LAKHCR = 5.42;
+const CENTRAL_SECTOR_TOTAL_LAKHCR = 16.22;
 const CSS_BREAKDOWN = [
-  { name: 'General Services', lakhCr: 2.62, slot: 's1' },
-  { name: 'Economic Services', lakhCr: 9.16, slot: 's3' },
-  { name: 'Social Services', lakhCr: 0.75, slot: 's4' },
-  { name: 'Subsidy', lakhCr: 4.55, slot: 's2' },
-  { name: 'Other', lakhCr: 0.64, slot: 's7' }
+  { name: 'General Services', lakhCr: 2.28, slot: 's1' },
+  { name: 'Economic Services', lakhCr: 8.38, slot: 's3' },
+  { name: 'Social Services', lakhCr: 0.67, slot: 's4' },
+  { name: 'Subsidy', lakhCr: 4.26, slot: 's2' },
+  { name: 'Other', lakhCr: 0.63, slot: 's7' }
 ];
 const SUBSIDY_BREAKDOWN = [
-  { name: 'Food (mainly PMGKAY)', lakhCr: 2.28, slot: 's2' },
-  { name: 'Fertiliser (Urea + Nutrient-Based)', lakhCr: 1.71, slot: 's4' },
+  { name: 'Food (mainly PMGKAY)', lakhCr: 2.03, slot: 's2' },
+  { name: 'Fertiliser (Urea + Nutrient-Based)', lakhCr: 1.68, slot: 's4' },
   { name: 'Petroleum (LPG etc.)', lakhCr: 0.12, slot: 's8' },
-  { name: 'Other subsidy', lakhCr: 0.44, slot: 's7' }
+  { name: 'Other subsidy', lakhCr: 0.43, slot: 's7' }
 ];
 const TRANSFERS_BREAKDOWN = [
-  { name: 'Other Central Expenditure (incl. interest ₹14.04L cr)', lakhCr: 17.61, slot: 's2' },
-  { name: 'Establishment Expenditure (salary, pension)', lakhCr: 8.24, slot: 's7' },
-  { name: 'Transfers to States/others', lakhCr: 4.41, slot: 's6' }
+  { name: 'Other Central Expenditure (incl. interest ₹12.76L cr)', lakhCr: 15.26, slot: 's2' },
+  { name: 'Establishment Expenditure (salary, pension)', lakhCr: 8.68, slot: 's7' },
+  { name: 'Transfers to States/others', lakhCr: 5.08, slot: 's6' }
 ];
 
-// 16th Finance Commission inter-se devolution shares, 2026-31 award period
+// 15th Finance Commission inter-se devolution shares, 2021-26 award period
+// Verified against XVFC Main Report Vol. I, Chapter 6, Table 6.5 (fincomindia.nic.in)
 const STATES_SHARE_PCT = [
-  { name: 'Uttar Pradesh', pct: 17.62 },
-  { name: 'Bihar', pct: 9.95 },
-  { name: 'Madhya Pradesh', pct: 7.35 },
-  { name: 'West Bengal', pct: 7.22 },
-  { name: 'Maharashtra', pct: 6.44 },
-  { name: 'Rajasthan', pct: 5.93 },
-  { name: 'Karnataka', pct: 4.13 },
-  { name: 'Tamil Nadu', pct: 4.10 }
+  { name: 'Uttar Pradesh', pct: 17.939 },
+  { name: 'Bihar', pct: 10.058 },
+  { name: 'Madhya Pradesh', pct: 7.850 },
+  { name: 'West Bengal', pct: 7.523 },
+  { name: 'Maharashtra', pct: 6.317 },
+  { name: 'Rajasthan', pct: 6.026 },
+  { name: 'Tamil Nadu', pct: 4.079 },
+  { name: 'Karnataka', pct: 3.647 }
 ];
 const STATES_SHARE_OTHER_PCT = 100 - STATES_SHARE_PCT.reduce((a, s) => a + s.pct, 0);
 
-// Statement 7 "Outlay on Major Schemes" (BE 2026-27 > ₹1,000 crore), ranked by allocation
+// "Outlay on Major Schemes" (BE 2025-26 > ₹1,000 crore), ranked by allocation
 const CSS_SCHEMES = [
-  { name: 'Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin)', cr: 95692, benef: 'Rural workers — 125 days/year guaranteed work (MGNREGA\'s successor)' },
-  { name: 'Jal Jeevan Mission', cr: 67670, benef: 'Rural households getting piped drinking water connections' },
-  { name: 'PM Awas Yojana – Rural', cr: 54917, benef: 'Rural families without a pucca house' },
-  { name: 'Samagra Shiksha', cr: 42100, benef: 'School students, grades 1-12, govt. & aided schools' },
-  { name: 'Flexible Pool for RCH & Health Systems (National Health Mission)', cr: 31820, benef: 'Primary healthcare — maternal & child health, disease control' },
-  { name: 'MGNREGA – Programme Component (being wound down)', cr: 30000, benef: 'Rural workers under the outgoing 100-day guarantee' },
-  { name: 'Saksham Anganwadi & POSHAN 2.0', cr: 23100, benef: 'Children under 6, pregnant & lactating women' },
-  { name: 'DAY-NRLM (rural livelihoods)', cr: 19200, benef: 'Rural women in self-help groups' },
+  { name: 'Mahatma Gandhi National Rural Employment Guarantee Programme (MGNREGA)', cr: 86000, benef: 'Rural workers — 100 days/year guaranteed work' },
+  { name: 'Jal Jeevan Mission', cr: 67000, benef: 'Rural households getting piped drinking water connections' },
+  { name: 'PM Awas Yojana – Rural', cr: 54832, benef: 'Rural families without a pucca house' },
+  { name: 'Samagra Shiksha', cr: 41250, benef: 'School students, grades 1-12, govt. & aided schools' },
+  { name: 'Flexible Pool for RCH & Health Systems (National Health Mission)', cr: 30010, benef: 'Primary healthcare — maternal & child health, disease control' },
+  { name: 'PM Awas Yojana – Urban (incl. PMAY-Urban 2.0)', cr: 23294, benef: 'Urban poor & informal-sector families without a pucca house' },
+  { name: 'Saksham Anganwadi & POSHAN 2.0', cr: 21960, benef: 'Children under 6, pregnant & lactating women' },
+  { name: 'DAY-NRLM (rural livelihoods)', cr: 19005, benef: 'Rural women in self-help groups' },
   { name: 'PM Gram Sadak Yojana', cr: 19000, benef: 'Villages getting all-weather road connectivity' },
-  { name: 'PM Awas Yojana – Urban', cr: 18625, benef: 'Urban poor & informal-sector families without a pucca house' },
-  { name: 'PM POSHAN (mid-day meals)', cr: 12750, benef: 'School children — free cooked meals' },
-  { name: 'Ayushman Bharat – PM-JAY', cr: 9500, benef: 'Poor & vulnerable families — ₹5 lakh/year health cover' }
+  { name: 'PM POSHAN (mid-day meals)', cr: 12500, benef: 'School children — free cooked meals' },
+  { name: 'Ayushman Bharat – PM-JAY', cr: 9406, benef: 'Poor & vulnerable families — ₹5 lakh/year health cover' }
 ];
 const CS_SCHEMES = [
-  { name: 'Pradhan Mantri Garib Kalyan Anna Yojana (PMGKAY)', cr: 227429, benef: '~80 crore NFSA beneficiaries — free foodgrain' },
-  { name: 'National Highways Authority of India', cr: 187293, benef: 'Highway construction & maintenance — commuters, freight' },
-  { name: 'Road Works', cr: 121999, benef: 'Non-NHAI road construction' },
-  { name: 'Urea Subsidy', cr: 116805, benef: 'Farmers — subsidised urea prices' },
-  { name: 'Aircraft & Aero Engines (Defence)', cr: 63734, benef: 'Air Force & Navy — aircraft procurement' },
+  { name: 'Pradhan Mantri Garib Kalyan Anna Yojana (PMGKAY)', cr: 203000, benef: '~80 crore NFSA beneficiaries — free foodgrain' },
+  { name: 'National Highways Authority of India', cr: 170266, benef: 'Highway construction & maintenance — commuters, freight' },
+  { name: 'Urea Subsidy', cr: 118900, benef: 'Farmers — subsidised urea prices' },
+  { name: 'Road Works', cr: 116292, benef: 'Non-NHAI road construction' },
   { name: 'PM-KISAN', cr: 63500, benef: '~9.7 crore farmer families — ₹6,000/year direct transfer' },
-  { name: 'Nutrient Based Subsidy', cr: 54000, benef: 'Farmers — subsidised non-urea fertiliser (DAP, NPK etc.)' },
-  { name: 'Rolling Stock (Railways)', cr: 52109, benef: 'New coaches, wagons, locomotives' },
-  { name: 'Naval Fleet', cr: 25024, benef: 'Navy — ship procurement' },
-  { name: 'Compensation to Telecom Service Providers', cr: 24000, benef: 'Rural/remote telecom connectivity viability funding' },
+  { name: 'Nutrient Based Subsidy', cr: 49000, benef: 'Farmers — subsidised non-urea fertiliser (DAP, NPK etc.)' },
+  { name: 'Aircraft & Aero Engines (Defence)', cr: 48614, benef: 'Air Force & Navy — aircraft procurement' },
+  { name: 'Rolling Stock (Railways)', cr: 45530, benef: 'New coaches, wagons, locomotives' },
+  { name: 'Compensation to Telecom Service Providers', cr: 28400, benef: 'Rural/remote telecom connectivity viability funding' },
+  { name: 'Naval Fleet', cr: 24391, benef: 'Navy — ship procurement' },
   { name: 'Modified Interest Subvention Scheme', cr: 22600, benef: 'Farmers — subsidised interest on crop loans' },
-  { name: 'PM Surya Ghar Muft Bijli Yojana', cr: 22000, benef: 'Households installing rooftop solar' }
+  { name: 'PM Surya Ghar Muft Bijli Yojana', cr: 20000, benef: 'Households installing rooftop solar' }
 ];
 
 // ---------- Rendering ----------
@@ -642,7 +644,7 @@ function render() {
 
   document.getElementById('shareValue').textContent = fmtRupees(pool, 2);
   document.getElementById('shareNote').textContent =
-    `The government plans to spend ${fmtLakhCr(FISCAL.totalExpenditure)} in FY2026-27 but will collect only ${fmtLakhCr(FISCAL.totalReceiptsExclBorrowing)} — the remaining ${fmtLakhCr(FISCAL.fiscalDeficit)} (${FISCAL.fiscalDeficitPctGDP}% of GDP) is borrowed.`;
+    `The government planned to spend ${fmtLakhCr(FISCAL.totalExpenditure)} in FY2025-26 but expected to collect only ${fmtLakhCr(FISCAL.totalReceiptsExclBorrowing)} — the remaining ${fmtLakhCr(FISCAL.fiscalDeficit)} (${FISCAL.fiscalDeficitPctGDP}% of GDP) was to be borrowed.`;
 
   renderFunc(pool);
   renderMin(pool);
@@ -701,7 +703,7 @@ function renderFacts(pool) {
   const spendPerSecond = crToRupees(FISCAL.totalExpenditure) / SECONDS_PER_YEAR;
   const taxLifespanSec = spendPerSecond > 0 ? (currentTaxPaid() / spendPerSecond) : 0;
 
-  const vbGramShare = schemeShare(pool, SCHEMES.vbGramG);
+  const mgnregaShare = schemeShare(pool, SCHEMES.mgnrega);
   const pmKisanShare = schemeShare(pool, SCHEMES.pmKisan);
   const pmKisanPct = pmKisanShare > 0 ? (pmKisanShare / SCHEMES.pmKisanPerFamily * 100) : null;
   const pmPoshanShare = schemeShare(pool, SCHEMES.pmPoshan);
@@ -719,25 +721,25 @@ function renderFacts(pool) {
       body: jetTaxpayers
         ? `It takes about ${jetTaxpayers.toLocaleString('en-IN')} taxpayers like you to fund one Tejas Mk1A fighter jet (₹${SCHEMES.tejasDealCr.toLocaleString('en-IN')} crore for 97 jets ordered Dec 2025, ≈₹643 crore each).`
         : `Enter your tax paid above to see the comparison.`,
-      src: 'Ministry of Defence total outlay (revenue + capital + pensions), BE 2026-27; Tejas Mk1A order value from Dec 2025 contract.'
+      src: 'Ministry of Defence total outlay (revenue + capital + pensions), BE 2025-26; Tejas Mk1A order value from Dec 2025 contract.'
     },
     {
       tag: 'Debt',
       headline: `Your interest share is <b>${fmtRupees(interestShare, 2)}</b>`,
       body: `That's ${fmtRupees(interestShare,2)} that goes to interest on past borrowing — not a road, school or clinic. The government pays about ${fmtRupees(crToRupees(SCHEMES.interestPayments)/SECONDS_PER_YEAR,0)} every second in interest alone.`,
-      src: 'Budget at a Glance, Interest Payments line, BE 2026-27.'
+      src: 'Budget at a Glance, Interest Payments line, BE 2025-26.'
     },
     {
       tag: 'General',
       headline: `Your entire payment is spent in <b>${taxLifespanSec < 1 ? (taxLifespanSec*1000).toFixed(1)+' milliseconds' : taxLifespanSec.toFixed(2)+' seconds'}</b>`,
       body: `The Union government spends its full ${fmtLakhCr(FISCAL.totalExpenditure)} budget at a rate of about ${fmtRupees(spendPerSecond,0)} per second.`,
-      src: 'Own calculation from Total Expenditure, BE 2026-27, ÷ seconds in FY.'
+      src: 'Own calculation from Total Expenditure, BE 2025-26, ÷ seconds in FY.'
     },
     {
       tag: 'Rural employment',
-      headline: `Your rural-employment share is <b>${fmtRupees(vbGramShare, 2)}</b>`,
-      body: `MGNREGA was repealed on 1 July 2026 and replaced by the Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, which raises the annual work guarantee from 100 to 125 days.`,
-      src: 'PIB; Budget at a Glance Statement 7, BE 2026-27.'
+      headline: `Your rural-employment share is <b>${fmtRupees(mgnregaShare, 2)}</b>`,
+      body: `MGNREGA guarantees 100 days of work a year to rural households and was still the fully operative scheme throughout FY2025-26 — it wasn't repealed until 1 July 2026, after this budget year had ended.`,
+      src: 'Budget at a Glance, "Outlay on Major Schemes," BE 2025-26.'
     },
     {
       tag: 'Farmers',
@@ -747,13 +749,13 @@ function renderFacts(pool) {
             ? `That covers a full farmer family's annual support (₹6,000/year, paid in three ₹2,000 installments) ${pmKisanPct >= 200 ? 'with room to spare' : ''}.`
             : `That covers about ${pmKisanPct.toFixed(0)}% of one farmer family's full-year support (₹6,000/year, paid in three ₹2,000 installments).`)
         : ``,
-      src: 'PM-KISAN scheme allocation, Budget at a Glance Statement 7, BE 2026-27.'
+      src: 'PM-KISAN scheme allocation, Budget at a Glance, BE 2025-26.'
     },
     {
       tag: 'School meals',
       headline: `Your school-meal share is <b>${fmtRupees(pmPoshanShare, 2)}</b>`,
-      body: `At ₹${SCHEMES.pmPoshanCostPerMeal.toFixed(2)} per meal (primary, all-in cost incl. foodgrain), that funds about ${pmPoshanMeals.toLocaleString('en-IN')} PM POSHAN meals.`,
-      src: 'Ministry of Education, cooking cost norms effective May 2025; PM POSHAN allocation, BE 2026-27.'
+      body: `At ₹${SCHEMES.pmPoshanCostPerMeal.toFixed(2)} per meal (primary, all-in cost incl. foodgrain, effective May 2025), that funds about ${pmPoshanMeals.toLocaleString('en-IN')} PM POSHAN meals.`,
+      src: 'Ministry of Education, cooking cost norms effective May 2025; PM POSHAN allocation, BE 2025-26.'
     },
     {
       tag: 'Housing',
@@ -761,25 +763,25 @@ function renderFacts(pool) {
       body: pmayTaxpayers
         ? `It takes about ${pmayTaxpayers.toLocaleString('en-IN')} taxpayers like you to fund one PMAY-Gramin house subsidy (₹1.2 lakh).`
         : ``,
-      src: 'PMAY (Rural + Urban + Urban 2.0) combined allocation, BE 2026-27.'
+      src: 'PMAY (Rural + Urban + Urban 2.0) combined allocation, BE 2025-26.'
     },
     {
       tag: 'Space',
       headline: `Your space-programme share is <b>${fmtRupees(spaceShare, 2)}</b>`,
-      body: `The Department of Space's entire FY2026-27 budget — all of ISRO — is ${fmtCr(SCHEMES.deptSpace)}, just ${(SCHEMES.deptSpace/FISCAL.totalExpenditure*100).toFixed(2)}% of total Union spending.`,
-      src: 'Notes on Demands for Grants 2026-27, Department of Space.'
+      body: `The Department of Space's entire FY2025-26 budget — all of ISRO — is ${fmtCr(SCHEMES.deptSpace)}, just ${(SCHEMES.deptSpace/FISCAL.totalExpenditure*100).toFixed(2)}% of total Union spending.`,
+      src: 'Notes on Demand for Grants 2025-26, Department of Space.'
     },
     {
       tag: 'Federalism',
       headline: `Your biggest single line isn't a ministry — it's <b>${fmtRupees(stateShare, 2)}</b>`,
       body: `That's automatically devolved to state governments as their constitutionally mandated share of central taxes, before the Union spends a rupee of its own discretion.`,
-      src: 'Budget at a Glance, "Rupee Goes To", States\' Share of Taxes, BE 2026-27.'
+      src: 'Budget at a Glance, "Rupee Goes To", States\' Share of Taxes, BE 2025-26.'
     },
     {
       tag: 'Diplomacy',
       headline: `Your foreign-affairs share is <b>${fmtRupees(eaShare, 2)}</b>`,
       body: `The entire Ministry of External Affairs — every Indian embassy, consulate and foreign-aid programme worldwide — runs on ${fmtCr(SCHEMES.externalAffairs)}, ${(SCHEMES.externalAffairs/FISCAL.totalExpenditure*100).toFixed(2)}% of total spending.`,
-      src: 'Notes on Demands for Grants 2026-27, Ministry of External Affairs.'
+      src: 'Notes on Demand for Grants 2025-26, Ministry of External Affairs.'
     }
   ];
 
@@ -810,8 +812,8 @@ function drawFlowBar(barId, legendId, items, total) {
 
 function renderSchemes(pool) {
   drawFlowBar('flowCSS', 'flowCSSLegend', CSS_BREAKDOWN, CENTRAL_SECTOR_TOTAL_LAKHCR);
-  drawFlowBar('flowSubsidy', 'flowSubsidyLegend', SUBSIDY_BREAKDOWN, 4.55);
-  drawFlowBar('flowTransfers', 'flowTransfersLegend', TRANSFERS_BREAKDOWN, 30.26);
+  drawFlowBar('flowSubsidy', 'flowSubsidyLegend', SUBSIDY_BREAKDOWN, 4.26);
+  drawFlowBar('flowTransfers', 'flowTransfersLegend', TRANSFERS_BREAKDOWN, 29.01);
 
   document.getElementById('statesShareLakhCr').textContent = (FISCAL.statesShareOfTaxes / 100000).toFixed(2);
 
@@ -819,12 +821,12 @@ function renderSchemes(pool) {
   const statesRows = STATES_SHARE_PCT.map(s => `
     <tr>
       <td>${s.name}</td>
-      <td class="num">${s.pct.toFixed(2)}%</td>
+      <td class="num">${s.pct.toFixed(3)}%</td>
       <td class="num">${fmtRupees(statesShareTotal * s.pct / 100, 2)}</td>
     </tr>`).join('') + `
     <tr>
       <td>All other states &amp; UTs</td>
-      <td class="num">${STATES_SHARE_OTHER_PCT.toFixed(2)}%</td>
+      <td class="num">${STATES_SHARE_OTHER_PCT.toFixed(3)}%</td>
       <td class="num">${fmtRupees(statesShareTotal * STATES_SHARE_OTHER_PCT / 100, 2)}</td>
     </tr>`;
   document.getElementById('statesTable').innerHTML = statesRows;
@@ -858,7 +860,7 @@ taxInput.addEventListener('input', render);
 
 // init
 document.getElementById('mgnregaText').textContent =
-  `MGNREGA, the 20-year-old rural employment guarantee law, was repealed on 1 July 2026. It has been replaced by the Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025 (VB-G RAM G), which raises the statutory work guarantee from 100 to 125 days a year, restores unemployment allowance, and refocuses works on water security, rural infrastructure, livelihoods and climate-resilience. BE 2026-27 allocates ₹${SCHEMES.vbGramG.toLocaleString('en-IN')} crore to the new scheme.`;
+  `Mahatma Gandhi NREGA, the rural employment guarantee law, guarantees 100 days of work a year to rural households and was still fully in force throughout FY2025-26 — BE 2025-26 allocated ₹${SCHEMES.mgnrega.toLocaleString('en-IN')} crore to it. It was only repealed on 1 July 2026, after this budget year had ended, and replaced by the Viksit Bharat–Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025, which raised the statutory work guarantee to 125 days a year.`;
 
 taxInput.value = '0';
 render();
