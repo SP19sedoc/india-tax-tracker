@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="arcade">
+<html lang="en" data-theme="playground">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&family=Fredoka:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 <style>
-  /* Theme 1 (default): Storybook — comic-panel ink outlines, Poppins + Inter */
+  /* Theme 1: Warm (Storybook) — comic-panel ink outlines, Poppins + Inter */
   :root, [data-theme="storybook"] {
     --bg: #fff7e8; --card-bg: #ffffff; --text: #1f2430; --muted: #6a6455;
     --border: #1f2430; --border-w: 2.5px; --radius-card: 16px; --radius-pill: 999px;
@@ -20,7 +20,7 @@
     --s1: #e8402c; --s2: #2e9bf0; --s3: #ffc93c; --s4: #4caf6d;
     --s5: #9b59d0; --s6: #ff8a3d; --s7: #2fc9c9; --s8: #ff5da2;
   }
-  /* Theme 2: Playground — saturated coral/blue/mustard/green, Fredoka + Nunito Sans */
+  /* Theme 2 (default): Modern (Playground) — saturated coral/blue/mustard/green, Fredoka + Nunito Sans */
   [data-theme="playground"] {
     --bg: #eef8ff; --card-bg: #ffffff; --text: #22252b; --muted: #5a5c66;
     --border: #eaf2fb; --border-w: 1px; --radius-card: 20px; --radius-pill: 999px;
@@ -32,7 +32,7 @@
     --s1: #ff5d5d; --s2: #2ea6ff; --s3: #ffb238; --s4: #3dbe7a;
     --s5: #9b6bff; --s6: #ff8a3d; --s7: #29c7b3; --s8: #ff6fa5;
   }
-  /* Theme 3: Arcade Cabinet — neon glow on near-black, Press Start 2P + VT323 + Inter */
+  /* Theme 3: Neon (Arcade Cabinet) — neon glow on near-black, Press Start 2P + VT323 + Inter */
   [data-theme="arcade"] {
     --bg: #0d0221; --card-bg: #160a30; --text: #f0eaff; --muted: #9d8bc9;
     --border: #3d2a66; --border-w: 2px; --radius-card: 6px; --radius-pill: 3px;
@@ -480,16 +480,16 @@
 
 <div style="text-align: center; margin-top: 28px;">
   <div class="theme-toggle" id="themeToggle">
-    <button class="theme-btn" data-theme-choice="storybook">Storybook</button>
-    <button class="theme-btn" data-theme-choice="playground">Playground</button>
-    <button class="theme-btn" data-theme-choice="arcade">Arcade</button>
+    <button class="theme-btn" data-theme-choice="storybook">Warm</button>
+    <button class="theme-btn" data-theme-choice="playground">Modern</button>
+    <button class="theme-btn" data-theme-choice="arcade">Neon</button>
   </div>
 </div>
 
 </div>
 
 <script>
-// ---------- Theme (Storybook / Playground / Arcade) ----------
+// ---------- Theme (Warm / Modern / Neon) ----------
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   try { localStorage.setItem('itt-theme', theme); } catch (e) {}
@@ -498,8 +498,8 @@ function applyTheme(theme) {
   });
 }
 (function initTheme() {
-  let saved = 'arcade';
-  try { saved = localStorage.getItem('itt-theme') || 'arcade'; } catch (e) {}
+  let saved = 'playground';
+  try { saved = localStorage.getItem('itt-theme') || 'playground'; } catch (e) {}
   document.documentElement.dataset.theme = saved;
   document.querySelectorAll('.theme-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.themeChoice === saved);
